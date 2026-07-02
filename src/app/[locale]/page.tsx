@@ -5,6 +5,8 @@ import Link from "next/link";
 import { LangProvider, useLang } from "@/components/LangProvider";
 import { useTheme } from "next-themes";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { WeatherWidget } from "@/components/WeatherWidget";
+import { StructuredData } from "@/components/StructuredData";
 import galleryImagesData from "@/gallery-data.json";
 
 const MAPS_URL = "https://maps.app.goo.gl/kt9zoMAY7M3ShhEC8";
@@ -334,6 +336,9 @@ function Visiting() {
             <p style={{ fontSize: "1rem", lineHeight: "1.8", color: "rgba(255,255,255,0.85)", whiteSpace: "pre-line" }}>{t.visiting.route.content}</p>
           </div>
         </ScrollReveal>
+        <ScrollReveal>
+          <WeatherWidget />
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -404,6 +409,21 @@ function Transportation() {
                 ))}
               </div>
             </div>
+
+            {t.transportation.train && (
+              <div className="transport-card" style={{ border: "2px solid var(--color-sky)" }}>
+                <div className="transport-icon" style={{ background: "var(--color-sky)", color: "#fff" }}>🚂</div>
+                <h3 className="transport-title" style={{ color: "var(--color-sky)" }}>{t.transportation.train.title}</h3>
+                <p className="transport-content" style={{ marginBottom: "1rem" }}>{t.transportation.train.content}</p>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", background: "rgba(74, 144, 184, 0.05)", padding: "1.25rem", borderRadius: "6px" }}>
+                  {t.transportation.train.steps.map((step: string, i: number) => (
+                    <div key={i} style={{ fontSize: "0.9rem", color: "var(--color-earth-soft)", lineHeight: "1.5", display: "flex", gap: "0.5rem" }}>
+                      <span style={{ color: "var(--color-sky)" }}>•</span> {step}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
         </div>
@@ -695,6 +715,7 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
   const params = React.use(props.params);
   return (
     <LangProvider initialLocale={params.locale as "en" | "zh" | "es" | "qu"}>
+      <StructuredData />
       <Nav />
       <Hero />
       <About />
