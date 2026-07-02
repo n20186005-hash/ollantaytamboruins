@@ -3,7 +3,9 @@ import { MetadataRoute } from 'next';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = `https://${process.env.CURRENT_SITE_DOMAIN || 'ollantaytamboruins.com'}`;
+  const baseUrl = process.env.CURRENT_SITE_DOMAIN 
+    ? `https://${process.env.CURRENT_SITE_DOMAIN}` 
+    : 'https://ollantaytamboruins.com';
 
   const languages = {
     es: `${baseUrl}/es`,
