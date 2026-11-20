@@ -1,0 +1,312 @@
+{
+  "pinkuylluna": {
+    "es": "Almacenes de Pinkuylluna",
+    "zh": "平库尤纳印加粮仓",
+    "qu": "Pinkuylluna qullqakuna"
+  },
+  "pumamarca": {
+    "es": "Sitio arqueológico de Pumamarca",
+    "zh": "普马马尔卡考古遗址",
+    "qu": "Pumamarka ñawpa kiti"
+  },
+  "naupa-iglesia": {
+    "es": "Sitio arqueológico de Ñaupa Iglesia",
+    "zh": "Ñaupa Iglesia 考古遗址",
+    "qu": "Ñawpa Iglesia"
+  },
+  "ollantaytambo-old-town": {
+    "es": "Ciudad Vieja de Ollantaytambo",
+    "zh": "奥扬泰坦博古镇",
+    "qu": "Ullantaytampup ñawpa llaqtan"
+  },
+  "ollantaytambo-station": {
+    "es": "Estación de tren de Ollantaytambo",
+    "zh": "奥扬泰坦博火车站",
+    "qu": "Ullantaytampup tren sayanan"
+  },
+  "moray": {
+    "es": "Parque arqueológico de Moray",
+    "zh": "莫雷考古公园",
+    "qu": "Muray ñawpa kiti"
+  },
+  "maras-salt-pans": {
+    "es": "Las salinas de Maras",
+    "zh": "马拉斯盐田",
+    "qu": "Maras kachi quchakuna"
+  },
+  "maras-town": {
+    "es": "Ciudad histórica de Maras",
+    "zh": "马拉斯古镇",
+    "qu": "Maras ñawpa llaqta"
+  },
+  "chinchero": {
+    "es": "Parque arqueológico de Chinchero",
+    "zh": "钦切罗考古公园",
+    "qu": "Chinchero ñawpa kiti"
+  },
+  "pisac-ruins": {
+    "es": "Parque arqueológico de Pisac",
+    "zh": "皮萨克考古公园",
+    "qu": "Pisaq ñawpa kiti"
+  },
+  "pisac-market": {
+    "es": "Mercado de Pisac",
+    "zh": "皮萨克手工艺市场",
+    "qu": "Pisaq qhatu"
+  },
+  "huchuy-qosqo": {
+    "es": "Huchuy Qosqo",
+    "zh": "小库斯科遗址",
+    "qu": "Huch'uy Qusqu"
+  },
+  "yucay": {
+    "es": "Aldea de Yucay",
+    "zh": "尤凯村",
+    "qu": "Yucay llaqta"
+  },
+  "urubamba": {
+    "es": "Plaza de Armas de Urubamba",
+    "zh": "乌鲁班巴武器广场",
+    "qu": "Urubambap hatun plazan"
+  },
+  "calca": {
+    "es": "Plaza de Armas de Calca",
+    "zh": "卡尔卡武器广场",
+    "qu": "Calcap hatun plazan"
+  },
+  "machu-picchu": {
+    "es": "La ciudadela de Machu Picchu",
+    "zh": "马丘比丘古城",
+    "qu": "Machu Pikchu ñawpa llaqta"
+  },
+  "huayna-picchu": {
+    "es": "Huayna Picchu",
+    "zh": "华纳比丘山",
+    "qu": "Wayna Picchu"
+  },
+  "intipunku-machu-picchu": {
+    "es": "Intipunku Puerta del Sol en Machu Picchu",
+    "zh": "马丘比丘太阳门",
+    "qu": "Machu Picchup Inti Punkun"
+  },
+  "machu-picchu-pueblo": {
+    "es": "Machu Picchu Pueblo",
+    "zh": "马丘比丘镇（热水镇）",
+    "qu": "Machu Picchu Pueblo"
+  },
+  "winay-wayna": {
+    "es": "Wiñay Wayna",
+    "zh": "维尼亚伊·瓦伊纳遗址",
+    "qu": "Wiñay Wayna"
+  },
+  "phuyupatamarka": {
+    "es": "Phuyupatamarka",
+    "zh": "普尤帕塔马尔卡遗址",
+    "qu": "Phuyupatamarka"
+  },
+  "sayacmarca": {
+    "es": "Sayacmarca",
+    "zh": "萨亚克马尔卡遗址",
+    "qu": "Sayacmarca"
+  },
+  "runkuraqay": {
+    "es": "Runkuraqay",
+    "zh": "伦库拉卡伊遗址",
+    "qu": "Runkuraqay"
+  },
+  "patallacta": {
+    "es": "Patallacta",
+    "zh": "帕塔亚克塔遗址",
+    "qu": "Patallaqta"
+  },
+  "sacsayhuaman": {
+    "es": "Sacsayhuamán",
+    "zh": "萨克塞瓦曼遗址",
+    "qu": "Saqsaywaman"
+  },
+  "qenqo": {
+    "es": "Sitio arqueológico de Q’enqo",
+    "zh": "肯科考古遗址",
+    "qu": "Q'inqu ñawpa kiti"
+  },
+  "puka-pukara": {
+    "es": "Puka Pukara",
+    "zh": "普卡普卡拉遗址",
+    "qu": "Puka Pukara"
+  },
+  "tambomachay": {
+    "es": "Tambomachay",
+    "zh": "坦博马凯遗址",
+    "qu": "Tampumachay"
+  },
+  "qorikancha": {
+    "es": "Qorikancha y Santo Domingo",
+    "zh": "太阳神殿与圣多明各修道院",
+    "qu": "Qurikancha, Santo Domingo"
+  },
+  "cusco-cathedral": {
+    "es": "Catedral de Cusco",
+    "zh": "库斯科主教座堂",
+    "qu": "Qusqup Catedralnin"
+  },
+  "san-pedro-market": {
+    "es": "Mercado de San Pedro",
+    "zh": "圣佩德罗市场",
+    "qu": "San Pedro qhatu"
+  },
+  "cachicqata": {
+    "es": "Canteras incas de Cachicqata",
+    "zh": "卡奇卡塔印加采石场",
+    "qu": "Kachiqhata Inka rumi hurquna kiti"
+  },
+  "inti-punku-ollantaytambo": {
+    "es": "Inti Punku de Ollantaytambo",
+    "zh": "奥扬泰坦博太阳门",
+    "qu": "Ullantaytampup Inti Punkun"
+  },
+  "willoq": {
+    "es": "Comunidad de Willoq",
+    "zh": "维约克社区",
+    "qu": "Willuq ayllu"
+  },
+  "patacancha": {
+    "es": "Comunidad de Patacancha",
+    "zh": "帕塔坎查社区",
+    "qu": "Patakancha ayllu"
+  },
+  "pachar": {
+    "es": "Aldea de Pachar",
+    "zh": "帕查尔村",
+    "qu": "Pachar llaqta"
+  },
+  "piuray": {
+    "es": "Lago Piuray",
+    "zh": "皮乌赖湖",
+    "qu": "Piuray qucha"
+  },
+  "huaypo": {
+    "es": "Lago Huaypo",
+    "zh": "瓦伊波湖",
+    "qu": "Waypu qucha"
+  },
+  "lamay": {
+    "es": "Aldea de Lamay",
+    "zh": "拉迈村",
+    "qu": "Lamay llaqta"
+  },
+  "tarawasi": {
+    "es": "Sitio arqueológico de Tarawasi",
+    "zh": "塔拉瓦西考古遗址",
+    "qu": "Tarawasi ñawpa kiti"
+  },
+  "qoricocha": {
+    "es": "Laguna de Qoricocha",
+    "zh": "科里科查湖",
+    "qu": "Quriqucha"
+  },
+  "mandor": {
+    "es": "Jardines de Mandor y cascada",
+    "zh": "曼多尔花园与瀑布",
+    "qu": "Mandor muyu, yaku phaqcha"
+  },
+  "manuel-chavez-ballon": {
+    "es": "Museo de Sitio Manuel Chávez Ballón",
+    "zh": "曼努埃尔·查韦斯·巴永遗址博物馆",
+    "qu": "Manuel Chávez Ballón kitipa museon"
+  },
+  "chachabamba": {
+    "es": "Sitio arqueológico de Chachabamba",
+    "zh": "查查班巴遗址",
+    "qu": "Chachabamba ñawpa kiti"
+  },
+  "intipata": {
+    "es": "Las terrazas de Intipata",
+    "zh": "印蒂帕塔梯田",
+    "qu": "Intipata patakuna"
+  },
+  "machu-picchu-mountain": {
+    "es": "Montaña Machu Picchu",
+    "zh": "马丘比丘山",
+    "qu": "Machu Picchu urqu"
+  },
+  "banos-termales": {
+    "es": "Baños térmicos de Aguas Calientes",
+    "zh": "热水镇温泉",
+    "qu": "Aguas Calientes quñi yaku armakuna"
+  },
+  "tipon": {
+    "es": "Parque arqueológico de Tipón",
+    "zh": "蒂蓬考古公园",
+    "qu": "Tipón ñawpa kiti"
+  },
+  "pikillaqta": {
+    "es": "Parque arqueológico de Pikillaqta",
+    "zh": "皮基亚克塔考古公园",
+    "qu": "Pikillaqta ñawpa kiti"
+  },
+  "raqchi": {
+    "es": "Raqchi y el templo de Wiracocha",
+    "zh": "拉克奇遗址与维拉科查神庙",
+    "qu": "Raqchi, Wiraquchap templon"
+  },
+  "andahuaylillas": {
+    "es": "Iglesia de San Pedro Apóstol de Andahuaylillas",
+    "zh": "安达瓦伊利亚斯圣佩德罗使徒教堂",
+    "qu": "Andahuaylillaspa San Pedro Apóstol templon"
+  },
+  "huacarpay": {
+    "es": "Humedal de Lucre–Huacarpay",
+    "zh": "卢克雷—瓦卡尔派湿地",
+    "qu": "Lucre–Huacarpay huq'u allpa"
+  },
+  "museo-inka": {
+    "es": "Museo Inka",
+    "zh": "印加博物馆",
+    "qu": "Inka museo"
+  },
+  "museo-garcilaso": {
+    "es": "Museo histórico regional de Cusco",
+    "zh": "库斯科地区历史博物馆",
+    "qu": "Qusqu suyupa ñawpa kawsay museon"
+  },
+  "map-cusco": {
+    "es": "Museo de Arte Precolombino de Cusco",
+    "zh": "库斯科前哥伦布艺术博物馆",
+    "qu": "Ñawpa América arte museon (MAP)"
+  },
+  "san-blas": {
+    "es": "Plazoleta de San Blas y barrio de artesanos",
+    "zh": "圣布拉斯广场与工匠街区",
+    "qu": "San Blas plaza, maki llamkaqkunap kitin"
+  },
+  "twelve-angled-stone": {
+    "es": "Piedra de los Doce Ángulos",
+    "zh": "十二角石",
+    "qu": "Chunka iskayniyuq k'uchu rumi"
+  },
+  "la-compania": {
+    "es": "Iglesia de La Compañía de Jesús",
+    "zh": "库斯科耶稣会教堂",
+    "qu": "La Compañía de Jesús templo"
+  },
+  "la-merced": {
+    "es": "La basílica y el convento de La Merced",
+    "zh": "慈悲圣母圣殿与修道院",
+    "qu": "La Merced basilica, convento"
+  },
+  "cristo-blanco": {
+    "es": "Mirador de Cristo Blanco",
+    "zh": "白色基督观景台",
+    "qu": "Cristo Blanco qhawana"
+  },
+  "san-cristobal": {
+    "es": "Mirador de San Cristóbal",
+    "zh": "圣克里斯托瓦尔观景台",
+    "qu": "San Cristóbal qhawana"
+  },
+  "museo-machu-picchu": {
+    "es": "Museo de Machu Picchu en Casa Concha",
+    "zh": "孔查故居马丘比丘博物馆",
+    "qu": "Casa Conchapi Machu Picchu museo"
+  }
+}

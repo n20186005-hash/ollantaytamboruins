@@ -1,5 +1,5 @@
 export const guideSlugs = ["tickets-and-hours", "temple-of-the-sun", "train-to-machu-picchu"] as const;
-export const guideLocales = ["en", "es", "zh"] as const;
+export const guideLocales = ["en", "es", "zh", "qu"] as const;
 export type GuideSlug = (typeof guideSlugs)[number];
 export type GuideLocale = (typeof guideLocales)[number];
 
@@ -11,6 +11,7 @@ type Guide = {
 };
 
 export const guideLabels = {
+  qu: { heading: "Watukuyta wakichiy", home: "Ñawpa kiti", map: "Google Maps nisqapi kichay", sources: "Willakuypa pukyunkuna", faq: "Tapukuykuna", checked: "2026 wata, 20 noviembre p’unchawpi qhawarisqa" },
   en: { heading: "Plan your visit", home: "Archaeological site", map: "Open in Google Maps", sources: "Official sources", faq: "Frequently asked questions", checked: "Sources checked on November 20, 2026" },
   es: { heading: "Planifica tu visita", home: "Parque arqueológico", map: "Abrir en Google Maps", sources: "Fuentes oficiales", faq: "Preguntas frecuentes", checked: "Fuentes consultadas el 20 de noviembre de 2026" },
   zh: { heading: "规划游览", home: "考古遗址首页", map: "在 Google 地图中打开", sources: "官方资料", faq: "常见问题", checked: "资料核对日期 2026 年 11 月 20 日" },
@@ -40,6 +41,38 @@ export const guideSources = {
 };
 
 export const guides: Record<GuideLocale, Record<GuideSlug, Guide>> = {
+  qu: {
+    "tickets-and-hours": {
+      title: "Ullantaytampu ñawpa kitiman yaykuna, kichasqa pachapas",
+      intro: "Watukunayki kitikunaman hina Qusqupa Boleto Turístico nisqanta akllay. Willka Qhichwaman manaraq rispa kichasqa pachata qaway.",
+      sections: [
+        ["Mayqin boletowan yaykuna?", "COSITUC nisqap kimsa muyuyninpi Ullantaytampu, Pisaq, Chinchiru, Muray ima kachkan. Hawa llaqtayuqkunapaq iskay p’unchaw 70 soles. Hunt’asqa boletoqa chunka p’unchawpaq 130 soles, huk muyuykunatawan hap’in. Kunan chaninta qaway."],
+        ["Hayk’aq yaykuna?", "DDC Cusco nisqa 07:00–16:30 nin. Rinayki p’unchawpi musuq willakuyta qaway. Hanaq patakunaman wicharinaykipaq kutimunaykipaqpas pachata saqiy."],
+        ["Watukuyta wakichiy", "Kikin kay qillqaykita boletotawan apay. Rantisqayki p’unchawmanta boletopa pacha qallarin. Kimsa muyuypa kitinkunata iskay qatiq p’unchawpi watukuy. Uchuy pampa ñanqa 35 minutu hina; punkupi rampan kachkan. Kichasqa ñanmanta llamkaqkunata tapuy."],
+      ],
+      faq: [["Kimsa muyuypa boletoqa Machu Pikchupaqpas kanchu?", "Kimsa muyuypi tawa Willka Qhichwa kitikuna kachkan. Machu Pikchupaq huk boletota rantiy."], ["Ñawpaqtachu boletota rantini?", "COSITUC nisqa watukuy qallarisqayki p’unchawpi rantinaykita yuyaychan. Chay p’unchawmanta pachan qallarin."]],
+    },
+    "temple-of-the-sun": {
+      title: "Ullantaytampupi Intip wasin",
+      intro: "Patakunata qatispa hanaq kitiman wichariy. Suqta hatun sayaq rumikuna Inka runakunap rurayninta rikuchinku.",
+      sections: [
+        ["Patakunamanta Intip wasinkama", "Ñawpa kitipa punkunmanta señasqa ñanta qatiy. Kichasqa kaptin chunka t’uquyuq kanchakama wichariy, chaymanta Intip wasinkama riy. Pata utaq ñan wisqasqa kaptin llamkaqkunata tapuy."],
+        ["Rumipi imata qawana", "Suqta hatun rumipa pirqanpi rumikunata hinaspa k’iti tupanakuyninta qaway. Pataman rikch’akuq siq’isqa kaqta maskay. Chay rumikunata uray patakunap pirqanwan tupachiy. Yupaychana wasikuna, patakuna, yaku ñankuna sapaq ruwayniyuq karqanku."],
+        ["Retratukuna, uraykuy", "Saqisqa ñanmanta patakunata wayquwan kuska retratay. Qhipaman rumikunap tupanakuyninta qayllamanta qaway. Huk runakunapa ñanta ama hark’aychu. Señasqa ñanta uraykuy. Drone nisqamanta DDC Cusco kamachiykunata qaway."],
+      ],
+      faq: [["Intip wasin boletoyuq kitipichu?", "Arí. Ullantaytampu ñawpa kitipa hanaq ladunpi kachkan."], ["Pampa ñan Intip wasinkamachu chayan?", "Intip wasin hanaqpi kachkan. Uchuy pampa ñanpa tukukuyninta, hanaq ñan kichasqachu kasqanta ima tapuy."]],
+    },
+    "train-to-machu-picchu": {
+      title: "Ullantaytampumanta Machu Pikchuman tren",
+      intro: "Ñawpa kitimanta trenpa sayananman purinata wakichiy. Machu Pikchuman yaykunata manaraq rantispayki trenpa chayananta qaway.",
+      sections: [
+        ["Allin lluqsiyta akllay", "Boletopi trenpa sayananta, imayna servicio kasqanta ima qaway. PeruRail nisqa Ullantaytampumanta Machu Pikchu Llaqtaman trenniyuqmi; huk serviciokunapi ñawpaqta buspi rinku. Maypi wicharinaykita boletowan tupachiy."],
+        ["Ñawpa kitimanta tren sayananman", "Ñawpa kitimanta llaqtaman lluqsiy, Avenida Ferrocarril nisqakama puriy. Q’ipiyuq purinaykipaq, mana pampa ñanpaq, ñawpaqta chayanaykipaq ima pachata saqiy. Tren tutamanta lluqtin, ñawpaq p’unchaw ch’isimpim ñawpa kitita watukuy."],
+        ["Machu Pikchu Llaqtamanta ñawpa kitiman", "Tren Machu Pikchu Llaqtaman chayan, Aguas Calientes nisqaman. Ñawpa kitiman wicharinapaq pachata saqiy, boleto nisqap horanman hina. Tren sayananmanta manaraq lluq’sispa kutimuy trenpa horanta qaway."],
+      ],
+      faq: [["Trenpa chanin Machu Pikchu yaykunatachu hap’in?", "Rantisqayki servicio ima hap’isqanta qaway. Trenpaq boleto trenllapaqmi. Ñawpa kitiman yaykunapaq sapaq boleto kachkan."], ["Trenman manaraq wicharispa ñawpa kitita watukuyta atinichu?", "Arí, watukunapaq, purinapaq, trenman ñawpaqta chayanapaq pacha kaptin."]],
+    },
+  },
   en: {
     "tickets-and-hours": {
       title: "Ollantaytambo Ruins Tickets and Opening Hours",
@@ -139,12 +172,18 @@ export const guides: Record<GuideLocale, Record<GuideSlug, Guide>> = {
 };
 
 export const practicalLabels = {
+  qu: { about: "Qhawaq kamachiq, yaykunapas", basic: "Aswan allin willakuy", location: "Maypi", transport: "Imayna chayana", reviews: "Watukuqkunap yuyaynin", current: "Google Maps nisqapi kunan yuyaykunata qaway", check: "Watukuqkunapaq kamachiqpa willakuynin" },
   en: { about: "Management and visitor access", basic: "Basic information", location: "Location", transport: "Getting there", reviews: "Visitor ratings and reviews", current: "See current ratings and reviews on Google Maps", check: "Official visitor information" },
   es: { about: "Gestión y acceso", basic: "Información básica", location: "Ubicación", transport: "Cómo llegar", reviews: "Valoraciones y opiniones", current: "Ver valoraciones y opiniones actuales en Google Maps", check: "Información oficial para visitantes" },
   zh: { about: "管理主体与参观安排", basic: "基础信息", location: "地点", transport: "交通方式", reviews: "游客评分与评价", current: "在 Google 地图查看最新评分和评价", check: "官方参观信息" },
 };
 
 export const guidePractical: Record<GuideLocale, Record<GuideSlug, { about: string; transport: string }>> = {
+  qu: {
+    "tickets-and-hours": { about: "DDC Cusco nisqa ñawpa kitita qhawan, kichasqa pachata kamachiykunatawan willan. COSITUC nisqa boletota qhawan.", transport: "Qusqumanta Chinchiru–Urupampa ñanta utaq Pisaq–Calca ñanta qatiy. Ullantaytampu llaqtamanta señasqa punkukama puriy." },
+    "temple-of-the-sun": { about: "Intip wasin DDC Cusco nisqap qhawasqan ñawpa kitipi kachkan. Llamkaqkuna hanaqpi kichasqa ñankunata willanku.", transport: "Hatun punkuman chayay, hinaspa saqisqa patakunata qatispa hanaqman wichariy." },
+    "train-to-machu-picchu": { about: "Trenpa empresa nisqan maypi wicharinata, ñawpaqta chayanata ima kamachin. Ministerio de Cultura nisqa Machu Pikchuman yaykunata qhawan.", transport: "Llaqtap chawpinmanta Avenida Ferrocarril nisqaman uraykuy. Maypi wicharinaykita, horata ima boletopi qaway." },
+  },
   en: {
     "tickets-and-hours": { about: "DDC Cusco manages the archaeological park and publishes visitor rules and hours. COSITUC administers the Cusco Tourist Ticket used for entry.", transport: "From Cusco, take the road via Chinchero and Urubamba or via Pisac and Calca. From Ollantaytambo town, walk to the signed archaeological entrance." },
     "temple-of-the-sun": { about: "The Temple of the Sun lies within the archaeological park managed by DDC Cusco. On-site staff set the upper-sector routes that are open to visitors.", transport: "Arrive at the main park entrance in Ollantaytambo, then follow the permitted stair route to the temple sector. Check with staff about closures." },

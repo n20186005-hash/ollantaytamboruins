@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { DetailLanguageLinks, LocalizedAttraction } from "@/components/LocalizedAttraction";
+import { attractionLocales, detailLocales } from "@/i18n/detail-locales";
+import { getAttractionCopy } from "@/i18n/attraction-copy";
+import { TravelDetailHero } from "@/components/TravelDetailHero";
 import { notFound } from "next/navigation";
 import { admissionDetails, areas, attractions, municipalContacts, operators } from "@/i18n/nearby";
 import { attractionPhotos } from "@/i18n/nearby-photos";
@@ -13,29 +16,36 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export const dynamic = "force-dynamic";
 
 async function getAttraction(params: Props["params"]) {
-  const { locale, slug } = await params;
+  const { locale: requested, slug } = await params;
+  const locale = detailLocales.find(lang => lang === requested);
   const attraction = attractions.find((item) => item.slug === slug);
-  if (locale !== "en" || !attraction) notFound();
-  return attraction;
+  if (!locale || !attraction) notFound();
+  if (locale === "en") return { attraction, locale, translation: null } as const;
+  const translation = getAttractionCopy(slug, locale);
+  if (!translation) notFound();
+  return { attraction, locale, translation } as const;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const attraction = await getAttraction(params);
-  const url = `${siteUrl}/en/explore/${attraction.slug}`;
+  const { attraction, locale, translation } = await getAttraction(params);
+  const path = `/explore/${attraction.slug}`;
+  const url = `${siteUrl}/${locale}${path}`;
+  const copy = translation ?? attraction;
+  const languages = Object.fromEntries(attractionLocales(attraction.slug).map(lang => [lang, `${siteUrl}/${lang}${path}`]));
   const photo = attractionPhotos[attraction.slug];
   return {
-    title: { absolute: `${attraction.name} Visitor Guide | Ollantaytambo` },
-    description: attraction.intro,
-    alternates: { canonical: url, languages: { en: url, "x-default": url } },
-    openGraph: { type: "article", title: attraction.name, description: attraction.intro, url, images: photo ? [photo.path] : [] },
-    twitter: { card: photo ? "summary_large_image" : "summary", title: attraction.name, description: attraction.intro, images: photo ? [photo.path] : [] },
+    title: { absolute: `${copy.name} | Ollantaytambo` },
+    description: copy.intro,
+    alternates: { canonical: url, languages: { ...languages, "x-default": `${siteUrl}/en${path}` } },
+    openGraph: { type: "article", title: copy.name, description: copy.intro, url, images: photo ? [photo.path] : [] },
+    twitter: { card: photo ? "summary_large_image" : "summary", title: copy.name, description: copy.intro, images: photo ? [photo.path] : [] },
   };
 }
 
 const heading = "section-title";
 
 export default async function AttractionPage({ params }: Props) {
-  const attraction = await getAttraction(params);
+  const { attraction, locale, translation } = await getAttraction(params);
   const operator = operators[attraction.operator];
   const management = heritageManagement[attraction.slug];
   const visitor = heritageVisitorDetails[attraction.slug];
@@ -82,6 +92,11 @@ export default async function AttractionPage({ params }: Props) {
   }[attraction.operator];
   const photo = attractionPhotos[attraction.slug];
   const map = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(attraction.place + ", Perú")}`;
+  if (locale !== "en") {
+    return <LocalizedAttraction slug={attraction.slug} locale={locale} area={area[locale]}
+      place={`${attraction.place}, Perú`} map={map} source={attraction.source} photo={photo} rating={rating} copy={translation} contact={manager}
+      extraSources={[management?.url, source, hours?.source, ticket?.source, pass ? tariffUrl : undefined, operator.url].filter((url): url is string => Boolean(url))} />;
+  }
   const areaPlaces = attractions.filter((item) => item.area === attraction.area);
   const currentPosition = areaPlaces.indexOf(attraction);
   const related = [...areaPlaces.slice(currentPosition + 1), ...areaPlaces.slice(0, currentPosition)].slice(0, 4);
@@ -99,27 +114,18 @@ export default async function AttractionPage({ params }: Props) {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <header className="site-nav scrolled">
+      <header className="site-nav scrolled travel-detail-nav">
         <Link href="/en" style={{ color: "#fff" }}>Ollantaytambo</Link>
-        <Link href="/en#nearby-attractions" style={{ color: "#fff" }}>Nearby attractions</Link>
+        {attractionLocales(attraction.slug).length > 1 ? <DetailLanguageLinks path={`/explore/${attraction.slug}`} locale="en" available={attractionLocales(attraction.slug)} /> : <Link href="/en#nearby-attractions">Nearby attractions</Link>}
       </header>
-      <article className="section explore-guide">
+      <TravelDetailHero title={attraction.name} label={area.en} subtitle={visit.tagline}
+        map={map} mapLabel="Open in Google Maps" photo={photo && { path: photo.path, alt: attraction.name }}>
+        <li>{rating ? <a href={rating.url}>{rating.score}/5 · {rating.reviews} Google reviews</a> : <a href={map}>Visitor ratings on Google Maps</a>}</li>
+        <li><a href="#opening-hours">{openingSummary}</a></li>
+      </TravelDetailHero>
+      <article className="section explore-guide travel-detail-body">
         <nav aria-label="Breadcrumb" className="section-label"><Link href="/en#nearby-attractions">Nearby attractions</Link> / {area.en}</nav>
-        <header className="explore-hero">
-          <h1 className={heading}>{attraction.name}</h1>
-          <p className="about-text">{visit.tagline}</p>
-          <ul className="explore-hero-meta">
-            <li>{rating ? <a href={rating.url}>{rating.score}/5 · {rating.reviews} Google reviews</a> : <a href={map}>Visitor ratings on Google Maps</a>}</li>
-            <li><a href="#opening-hours">{openingSummary}</a></li>
-            <li><a href={map}>Open in Google Maps</a></li>
-          </ul>
-          {photo && (
-            <figure className="explore-photo">
-              <Image src={photo.path} alt={attraction.name} width={photo.width} height={photo.height} />
-              <figcaption><a href={photo.source}>Photo source</a></figcaption>
-            </figure>
-          )}
-        </header>
+        {photo && <p className="travel-photo-credit"><a href={photo.source}>Photo source</a></p>}
         <section>
           <h2 className={heading}>Discover {attraction.name}</h2>
           <p className="about-text">{attraction.intro}</p>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DetailLanguageLinks } from "@/components/LocalizedAttraction";
+import { TravelDetailHero } from "@/components/TravelDetailHero";
 import { notFound } from "next/navigation";
 import { guideLabels, guideLocales, guidePlaces, guideSlugs, guideSources, guides, guidePractical, practicalLabels, guideRatings } from "@/i18n/guides";
 import { siteUrl } from "@/i18n/site-url";
@@ -43,22 +45,20 @@ export default async function GuidePage({ params }: Props) {
   const map = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(guidePlaces[slug])}`;
   return (
     <main>
-      <header className="site-nav scrolled">
+      <header className="site-nav scrolled travel-detail-nav">
         <Link href={`/${locale}`} style={{ color: "#fff" }}>Ollantaytambo</Link>
-        <div style={{ display: "flex", gap: "1rem" }}>
-          {guideLocales.map((lang) => (
-            <Link key={lang} href={`/${lang}/guide/${slug}`} hrefLang={lang} lang={lang}
-              aria-current={lang === locale ? "page" : undefined} style={{ color: "#fff" }}>
-              {{ en: "EN", es: "ES", zh: "中文" }[lang]}
-            </Link>
-          ))}
-        </div>
+        <DetailLanguageLinks path={`/guide/${slug}`} locale={locale} />
       </header>
-      <article className="section explore-guide">
-        <nav aria-label={labels.home}><Link href={`/${locale}`}>{labels.home}</Link></nav>
-        <h1 className="section-title">{guide.title}</h1>
+      <TravelDetailHero title={guide.title} label={labels.heading} map={map} mapLabel={labels.map}
+        photo={slug === "train-to-machu-picchu" ? {
+          path: "/explore/ollantaytambo-station.webp",
+          alt: guidePlaces[slug],
+        } : undefined}>
+        {rating && <li><a href={rating.source}>{rating.score.toLocaleString(locale)}/5 · Google Travel</a></li>}
+      </TravelDetailHero>
+      <article className="section explore-guide travel-detail-body">
+        <nav aria-label={labels.home} className="section-label"><Link href={`/${locale}`}>{labels.home}</Link></nav>
         <p className="about-text">{guide.intro}</p>
-        <p><a href={map}>{labels.map}</a></p>
         <section>
           <h2 className="section-title">{practical.about}</h2>
           <p className="about-text">{info.about}</p>
@@ -94,7 +94,7 @@ export default async function GuidePage({ params }: Props) {
           {rating && (
             <p className="about-text">
               <strong>{rating.score.toLocaleString(locale)} / 5</strong>
-              {" · "}{rating.count.toLocaleString(locale)} {({ en: "reviews", es: "opiniones", zh: "条评价" })[locale]}
+              {" · "}{rating.count.toLocaleString(locale)} {({ en: "reviews", es: "opiniones", zh: "条评价", qu: "yuyaykuna" })[locale]}
               <br /><a href={rating.source}>Google Travel</a>{" · "}{labels.checked}
             </p>
           )}

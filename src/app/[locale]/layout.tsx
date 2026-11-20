@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "../globals.css";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const cormorant = Cormorant_Garamond({
   weight: ["400", "600", "700"],
@@ -204,13 +205,14 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  const htmlLang = localeConfig[locale]?.htmlLang || "en";
+  const htmlLang = locale === "zh" || locale === "es" || locale === "qu" ? locale : "en";
 
   return (
     <>
       {/* 动态设置 <html lang> 属性（客户端组件） */}
       <HtmlLangSetter htmlLang={htmlLang} />
       {children}
+      <SiteFooter locale={htmlLang} />
     </>
   );
 }

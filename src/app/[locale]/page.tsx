@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { StructuredData } from "@/components/StructuredData";
+import { attractionTitle } from "@/i18n/detail-locales";
 import { areas, attractions, nearbyLabels } from "@/i18n/nearby";
 import { guideLabels, guideSlugs, guides } from "@/i18n/guides";
 import { generateSchema } from "../schema";
@@ -115,7 +116,7 @@ function Nav() {
           <a href="#reviews">{t.nav.reviews}</a>
           <a href="#faq">{t.nav.faq}</a>
           <a href="#location">{t.nav.location}</a>
-          {locale !== "qu" && <a href="#visit-guides">{guideLabels[locale].heading}</a>}
+          <a href="#visit-guides">{guideLabels[locale].heading}</a>
         </div>
         <ThemeToggle />
         <LanguageSwitcher />
@@ -146,7 +147,7 @@ function Hero() {
         <div className="hero-meta">
           <div className="hero-rating">4.8</div>
           <div className="hero-stars">★ ★ ★ ★ ★</div>
-          <div className="hero-reviews">26,178 {t.rating.reviews} · {t.rating.source}</div>
+          <div className="hero-reviews">26,914 {t.rating.reviews} · {t.rating.source}</div>
         </div>
       </a>
     </section>
@@ -692,11 +693,15 @@ function NearbyAttractions() {
         <div key={area} style={{ marginTop: "2rem" }}>
           <h3>{details[locale]}</h3>
           <div className="highlights-grid">
-            {attractions.filter((item) => item.area === area).map((item) => (
-              <Link key={item.slug} className="highlight-item" href={`/en/explore/${item.slug}`} hrefLang="en" lang="en">
-                {item.name}{locale !== "en" && " · EN"}
-              </Link>
-            ))}
+            {attractions.filter((item) => item.area === area).map((item) => {
+              const title = locale === "en" ? undefined : attractionTitle(item.slug, locale);
+              const linkLocale = title ? locale : "en";
+              return (
+                <Link key={item.slug} className="highlight-item" href={`/${linkLocale}/explore/${item.slug}`} hrefLang={linkLocale} lang={linkLocale}>
+                  {title ?? item.name}{locale !== linkLocale && " · EN"}
+                </Link>
+              );
+            })}
           </div>
         </div>
       ))}
@@ -706,7 +711,6 @@ function NearbyAttractions() {
 
 function VisitGuides() {
   const { locale } = useLang();
-  if (locale === "qu") return null;
   return (
     <section className="section" id="visit-guides">
       <h2 className="section-title">{guideLabels[locale].heading}</h2>
@@ -718,39 +722,6 @@ function VisitGuides() {
         ))}
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  const { t } = useLang();
-  return (
-    <footer className="site-footer">
-      <div className="footer-links">
-        <p className="footer-links-title">{t.footer.linksTitle}</p>
-        <div className="footer-links-grid">
-          {t.footer.links.map((link: { name: string; url: string }, i: number) => (
-            <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="footer-link-item">
-              {link.name}
-            </a>
-          ))}
-        </div>
-      </div>
-      <div className="footer-legal" style={{ maxWidth: "1100px", margin: "0 auto", padding: "1rem 2rem 0", textAlign: "center" }}>
-        <Link href="/privacy" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.8rem", marginRight: "1.5rem" }}>
-          Privacy Policy
-        </Link>
-        <Link href="/terms" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.8rem", marginRight: "1.5rem" }}>
-          Terms of Service
-        </Link>
-        <Link href="/cookies" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: "0.8rem" }}>
-          Cookie Settings
-        </Link>
-      </div>
-      <p className="footer-text" style={{ marginTop: "2rem", fontSize: "0.9rem", fontWeight: 600, color: "var(--color-gold)" }}>
-        {t.footer.callToAction}
-      </p>
-      <p className="footer-text" style={{ marginTop: "1rem", whiteSpace: "pre-line" }}>{t.footer.text}</p>
-    </footer>
   );
 }
 
@@ -775,7 +746,6 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
       <Reviews />
       <FAQ />
       <Location />
-      <Footer />
     </LangProvider>
   );
 }
