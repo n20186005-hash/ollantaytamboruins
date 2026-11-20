@@ -1,4 +1,5 @@
 import { expansionPlaces } from "./nearby-expansion";
+import { heritagePlaces } from "./nearby-heritage";
 
 export const nearbyLabels = {
   en: "Nearby attractions",
@@ -248,7 +249,7 @@ const records: [
     "Is it useful before leaving for the Sacred Valley?", "It can be a convenient city stop if your transfer starts nearby. Allow separate time for cross-town traffic."],
 ];
 
-const expandedRecords: typeof records = expansionPlaces.map(([
+const expandedRecords: typeof records = [...expansionPlaces, ...heritagePlaces].map(([
   slug, name, area, place, operator, source, intro, details, transport, camera, question, answer,
 ]) => [slug, name, area, place, operator, source, intro, details, transport, "", camera, question, answer]);
 
@@ -298,6 +299,9 @@ export const municipalContacts: Record<string, string> = {
 };
 
 export const admissionDetails: Record<string, string> = {
+  "sayri-tupac": "Free entry listed by MINCETUR; confirm access beyond the exterior locally.",
+  huaro: "Andean Baroque route or church admission. Verify the current inclusions.",
+  canincunca: "Andean Baroque route or chapel admission. Verify the current inclusions.",
   tipon: "Cusco Tourist Ticket, Circuit II or full ticket.",
   pikillaqta: "Cusco Tourist Ticket, Circuit II or full ticket.",
   "museo-garcilaso": "Cusco Tourist Ticket, Circuit II or full ticket.",

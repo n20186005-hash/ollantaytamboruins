@@ -370,5 +370,41 @@ export const attractionPhotos: Record<string, { path: string; source: string; wi
     "source": "https://kenkoadventures.com/blog/5-best-museums-cusco",
     "width": 1050,
     "height": 591
+  },
+  "choqana": {
+    "path": "/explore/choqana.webp",
+    "source": "https://www.tripadvisor.com/Attraction_Review-g294319-d8050275-Reviews-Choqana-Ollantaytambo_Sacred_Valley_Cusco_Region.html",
+    "width": 780,
+    "height": 780
+  },
+  "qespiwanka": {
+    "path": "/explore/qespiwanka.webp",
+    "source": "https://andina.pe/agencia/noticia-cusco-conoce-museo-qespiwanka-nueva-joya-cultural-de-provincia-urubamba-1012966.aspx",
+    "width": 1050,
+    "height": 713
+  },
+  "sayri-tupac": {
+    "path": "/explore/sayri-tupac.webp",
+    "source": "https://www.amerique-latine.com/ala/fr/Yucay.html",
+    "width": 640,
+    "height": 480
+  },
+  "huaro": {
+    "path": "/explore/huaro.webp",
+    "source": "https://jasonneely.com/blog/2015/6/28/huaro-and-andahuaylillas",
+    "width": 1050,
+    "height": 700
+  },
+  "canincunca": {
+    "path": "/explore/canincunca.webp",
+    "source": "https://www.tripadvisor.cn/Attraction_Review-g294314-d12875964-Reviews-Capilla_Virgen_Purificada_de_Canincunca-Cusco_Cusco_Region.html",
+    "width": 1043,
+    "height": 780
+  },
+  "inkariy": {
+    "path": "/explore/inkariy.webp",
+    "source": "https://www.tripadvisor.com/Attraction_Review-g294321-d6900020-Reviews-Museo_Inkariy-Urubamba_Sacred_Valley_Cusco_Region.html",
+    "width": 1050,
+    "height": 586
   }
 };

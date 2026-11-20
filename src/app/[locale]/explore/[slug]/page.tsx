@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { admissionDetails, areas, attractions, municipalContacts, operators } from "@/i18n/nearby";
 import { attractionPhotos } from "@/i18n/nearby-photos";
 import { confirmedTicketPrices, fieldDetails, machuTickets, openingHours, placeRatings, planningSources, tariffUrl, visitPlans } from "@/i18n/nearby-visit";
+import { heritageManagement } from "@/i18n/nearby-heritage";
 import { siteUrl } from "@/i18n/site-url";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -40,6 +41,8 @@ const heading = "section-title";
 export default async function AttractionPage({ params }: Props) {
   const attraction = await getAttraction(params);
   const operator = operators[attraction.operator];
+  const management = heritageManagement[attraction.slug];
+  const manager = management?.name ?? municipalContacts[attraction.slug] ?? operator.name;
   const area = areas[attraction.area];
   const visit = visitPlans[attraction.slug];
   const hours = openingHours[attraction.slug];
@@ -130,7 +133,10 @@ export default async function AttractionPage({ params }: Props) {
         </section>
         <section>
           <h2 className={heading}>About {attraction.name}</h2>
-          <p className="about-text"><strong>{municipalContacts[attraction.slug] ?? operator.name}.</strong> {operator.description}</p>
+          <p className="about-text">
+            <strong>{management ? <a href={management.url}>{manager}</a> : manager}.</strong>{" "}
+            {management?.details ?? operator.description}
+          </p>
         </section>
         <section>
           <h2 className={heading}>Basic information</h2>
@@ -139,6 +145,7 @@ export default async function AttractionPage({ params }: Props) {
               <tr><th scope="row">Place</th><td>{attraction.name}</td></tr>
               <tr><th scope="row">Location</th><td>{attraction.place}, Perú</td></tr>
               <tr><th scope="row">Area</th><td>{area.en}</td></tr>
+              <tr><th scope="row">Management or heritage contact</th><td>{manager}</td></tr>
               <tr><th scope="row">Terrain</th><td>{visit.terrain}</td></tr>
               <tr><th scope="row">Suggested time</th><td>{visit.duration}</td></tr>
               {field && <tr><th scope="row">{field.label}</th><td>{field.value}</td></tr>}

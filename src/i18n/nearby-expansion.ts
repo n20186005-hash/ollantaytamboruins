@@ -121,7 +121,7 @@ export const expansionPlaces = [
     "Plan a separate road excursion on the Cusco–Puno corridor, using the signed Raqchi turnoff in San Pedro district.",
     "Frame the temple wall broadside and keep adjacent structures in view to convey its height.",
     "Can Raqchi fit between Ollantaytambo and a short Cusco visit?","It lies well south of Cusco. Allow a dedicated road outing or make it a stop on a southbound itinerary."],
-  ["andahuaylillas","San Pedro Apóstol Church of Andahuaylillas","south","Templo San Pedro Apóstol, Plaza de Armas, Andahuaylillas, Quispicanchi, Cusco","church",inventory+"1821",
+  ["andahuaylillas","San Pedro Apóstol Church of Andahuaylillas","south","Templo San Pedro Apóstol, Plaza de Armas, Andahuaylillas, Quispicanchi, Cusco","church",inventory+"944",
     "This church on Andahuaylillas’s town square is a stop on the Andean Baroque route. Its plain exterior gives little indication of the detailed painted and carved interior.",
     "Where visitor access allows, compare the ceiling and wall decoration with the gilded focal points inside.",
     "Take the South Valley road to Andahuaylillas and ask for the village square.",

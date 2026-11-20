@@ -1,4 +1,5 @@
 import { expansionPlans } from "./nearby-expansion";
+import { heritagePlans } from "./nearby-heritage";
 
 type Visit = {
   tagline: string;
@@ -265,7 +266,7 @@ const plans: Record<string, [
   ],
 };
 
-export const visitPlans = Object.fromEntries(Object.entries({ ...plans, ...expansionPlans }).map(([slug, [
+export const visitPlans = Object.fromEntries(Object.entries({ ...plans, ...expansionPlans, ...heritagePlans }).map(([slug, [
   tagline, duration, terrain, advice, history, steps, precautions, stay,
 ]]) => [slug, { tagline, duration, terrain, advice, history, steps, precautions, stay } satisfies Visit]));
 
@@ -275,6 +276,10 @@ export const tariffUrl = "https://cosituc.gob.pe/tarifario-2/";
 export const machuTickets = "https://tuboleto.cultura.pe/";
 
 export const openingHours: Record<string, { time: string; source: string }> = {
+  inkariy: { time: "Daily 09:00–17:00, including holidays", source: "https://museoinkariy.com/contacts/" },
+  huaro: { time: "08:30–16:30 (MINCETUR inventory)", source: mincetur + "1821" },
+  canincunca: { time: "08:30–16:30 (MINCETUR inventory)", source: mincetur + "1822" },
+  "sayri-tupac": { time: "07:00–17:00 (MINCETUR inventory)", source: mincetur + "1779" },
   qorikancha: { time: "08:00–17:30 (MINCETUR inventory)", source: mincetur + "1790" },
   "cusco-cathedral": { time: "10:00–18:00 (MINCETUR inventory)", source: mincetur + "896" },
   "museo-inka": { time: "Mon–Fri 09:15–16:00; Sat 08:45–13:45 (Apr–Dec); closed Sundays and holidays", source: "https://museoinka.unsaac.edu.pe/informacion.php" },
@@ -286,6 +291,10 @@ export const openingHours: Record<string, { time: string; source: string }> = {
 };
 
 export const fieldDetails: Record<string, { label: string; value: string }> = {
+  "sayri-tupac": { label: "Road distance from Urubamba", value: "About 3.1 km" },
+  qespiwanka: { label: "Museum building", value: "Casa Hacienda Pino, five exhibition rooms" },
+  canincunca: { label: "Road reference", value: "About 43 km from Cusco’s Plaza de Armas in the tourism inventory" },
+  inkariy: { label: "Museum contact", value: "+51 984 666 698" },
   cachicqata: { label: "Inventory altitude", value: "About 3,886 m" },
   piuray: { label: "Road reference", value: "About 1 km from the paved Cusco–Chinchero road in MINCETUR’s inventory" },
   "museo-inka": { label: "Street address", value: "Cuesta del Almirante 103" },
@@ -314,17 +323,29 @@ const ollantaRating = "https://www.google.com/travel/hotels/entity/ChkI48Oh-57lr
 const cuscoRating = "https://www.google.com/travel/hotels/entity/ChkIvJrIm7idrdAGGg0vZy8xMXJuNG5keThjEAE?gsas=1";
 const elAlbergue = "https://www.google.com/travel/hotels/entity/ChcIz-6cnJWnv_lnGgsvZy8xdGZ6MTVkcRAB?ts=CAESABogCgIaABIaEhQKBwjlDxAHGBQSBwjlDxAHGBUYATICEAAqCQoFOgNVU0QaAA";
 
+const unuwasi = "https://www.google.com/travel/hotels/entity/ChoIi7vat6nJuNGpARoNL2cvMTFxMmtocDNwMBAB?ts=CAEaIAoCGgASGhIUCgcI6g8QCBgeEgcI6g8QCBgfGAEyAhAAKgkKBToDVVNEGgA";
+const killay = "https://www.google.com/travel/hotels/entity/CgoI0-HO-Z_QouE0EAE?ts=CAEaIAoCGgASGhIUCgcI6g8QCBgeEgcI6g8QCBgfGAEyAhAAKgkKBToDVVNEGgA";
+
 export const placeRatings: Record<string, { score: string; reviews: string; url: string }> = {
   pinkuylluna: { score: "4.7", reviews: "756", url: elAlbergue },
-  moray: { score: "4.7", reviews: "12,227", url: elAlbergue },
+  moray: { score: "4.7", reviews: "13,112", url: unuwasi },
+  chinchero: { score: "4.7", reviews: "8,007", url: unuwasi },
+  "maras-salt-pans": { score: "4.7", reviews: "1,751", url: unuwasi },
+  "huchuy-qosqo": { score: "4.8", reviews: "179", url: unuwasi },
+  "pisac-ruins": { score: "4.8", reviews: "10,264", url: killay },
+  "puka-pukara": { score: "4.6", reviews: "3,614", url: killay },
+  inkariy: { score: "4.7", reviews: "1,066", url: unuwasi },
   pumamarca: { score: "4.7", reviews: "185", url: ollantaRating },
   "naupa-iglesia": { score: "4.7", reviews: "255", url: ollantaRating },
   sacsayhuaman: { score: "4.7", reviews: "20,506", url: cuscoRating },
   qorikancha: { score: "4.7", reviews: "20,590", url: cuscoRating },
   "san-pedro-market": { score: "4.3", reviews: "45,754", url: cuscoRating },
-  tambomachay: { score: "4.6", reviews: "4,136", url: "https://www.google.com/travel/hotels/entity/ChkImuTa65XQ7rQJGg0vZy8xMXNid2x5X2xfEAE/prices" },
+  tambomachay: { score: "4.6", reviews: "4,171", url: killay },
 };
 
 export const confirmedTicketPrices: Record<string, { text: string; source: string }> = {
+  huaro: { text: "MINCETUR lists S/18 for international visitors and S/10 for Peruvian visitors or students. Confirm the current rate and route inclusions with the church.", source: mincetur + "1821" },
+  canincunca: { text: "MINCETUR lists S/18 for international visitors and S/10 for Peruvian visitors or students. Confirm admission arrangements with the chapel before traveling.", source: mincetur + "1822" },
+  "sayri-tupac": { text: "MINCETUR lists free entry. Ask locally which parts are accessible and view the frontage from public space.", source: mincetur + "1779" },
   "museo-inka": { text: "UNSAAC lists S/20 for international adults and S/10 for Peruvian adults. See the museum’s student rates and current conditions before travel.", source: "https://museoinka.unsaac.edu.pe/informacion.php" },
 };
