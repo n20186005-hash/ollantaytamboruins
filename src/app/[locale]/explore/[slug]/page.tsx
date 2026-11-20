@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { admissionDetails, areas, attractions, municipalContacts, operators } from "@/i18n/nearby";
 import { attractionPhotos } from "@/i18n/nearby-photos";
 import { confirmedTicketPrices, fieldDetails, machuTickets, openingHours, placeRatings, planningSources, tariffUrl, visitPlans } from "@/i18n/nearby-visit";
-import { heritageManagement } from "@/i18n/nearby-heritage";
+import { heritageManagement, heritageVisitorDetails } from "@/i18n/nearby-heritage";
 import { siteUrl } from "@/i18n/site-url";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -42,6 +42,7 @@ export default async function AttractionPage({ params }: Props) {
   const attraction = await getAttraction(params);
   const operator = operators[attraction.operator];
   const management = heritageManagement[attraction.slug];
+  const visitor = heritageVisitorDetails[attraction.slug];
   const manager = management?.name ?? municipalContacts[attraction.slug] ?? operator.name;
   const area = areas[attraction.area];
   const visit = visitPlans[attraction.slug];
@@ -128,6 +129,7 @@ export default async function AttractionPage({ params }: Props) {
           <p className="about-text">{attraction.intro}</p>
           <h3>Visit tips</h3>
           <p className="about-text">{visit.advice}</p>
+          {visitor && <p className="about-text">{visitor.timing}</p>}
           <h3>Highlights</h3>
           <p className="about-text">{attraction.details}</p>
         </section>
@@ -145,11 +147,15 @@ export default async function AttractionPage({ params }: Props) {
               <tr><th scope="row">Place</th><td>{attraction.name}</td></tr>
               <tr><th scope="row">Location</th><td>{attraction.place}, Perú</td></tr>
               <tr><th scope="row">Area</th><td>{area.en}</td></tr>
+              {visitor && <tr><th scope="row">Type of attraction</th><td>{visitor.kind}</td></tr>}
+              {visitor && <tr><th scope="row">Arrival point</th><td>{visitor.stop}</td></tr>}
               <tr><th scope="row">Management or heritage contact</th><td>{manager}</td></tr>
               <tr><th scope="row">Terrain</th><td>{visit.terrain}</td></tr>
               <tr><th scope="row">Suggested time</th><td>{visit.duration}</td></tr>
               {field && <tr><th scope="row">{field.label}</th><td>{field.value}</td></tr>}
-              {admission && <tr><th scope="row">Admission</th><td>{admission}</td></tr>}
+              <tr><th scope="row">Opening information</th><td>{hours ? <a href={hours.source}>{hours.time}</a> : <a href="#opening-hours">{openingSummary}</a>}</td></tr>
+              <tr><th scope="row">Admission</th><td>{admission ?? <a href="#admission">See admission arrangements</a>}</td></tr>
+              <tr><th scope="row">Visitor ratings</th><td>{rating ? <a href={rating.url}>{rating.score}/5 · {rating.reviews} Google reviews</a> : <a href={map}>Check on Google Maps</a>}</td></tr>
               <tr><th scope="row">Visitor information</th><td><a href={attraction.source}>Check site access and current arrangements</a></td></tr>
             </tbody>
           </table>
@@ -159,7 +165,7 @@ export default async function AttractionPage({ params }: Props) {
           {hours && <p className="about-text"><a href={hours.source}>{hours.time}</a>. Check for temporary changes on the day of travel.</p>}
           <p className="about-text">{openingNote}</p>
         </section>
-        <section>
+        <section id="admission">
           <h2 className={heading}>Ticket prices and admission</h2>
           {admission && <p className="about-text">{admission}</p>}
           {ticket ? (
@@ -190,10 +196,17 @@ export default async function AttractionPage({ params }: Props) {
         <section>
           <h2 className={heading}>Getting there</h2>
           <p className="about-text">{attraction.transport}</p>
+          {visitor && <p className="about-text">{visitor.arrival}</p>}
         </section>
         <section>
           <h2 className={heading}>History, architecture and visitor experience</h2>
           <p className="about-text">{visit.history}</p>
+          {visitor?.features.map(({ title, text }) => (
+            <div key={title}>
+              <h3>{title}</h3>
+              <p className="about-text">{text}</p>
+            </div>
+          ))}
         </section>
         <section>
           <h2 className={heading}>Suggested walking route</h2>
@@ -209,6 +222,7 @@ export default async function AttractionPage({ params }: Props) {
         <section>
           <h2 className={heading}>Where to take photos</h2>
           <p className="about-text">{attraction.camera}</p>
+          {visitor && <p className="about-text">{visitor.photo}</p>}
         </section>
         <section>
           <h2 className={heading}>Where to stay</h2>
@@ -222,17 +236,23 @@ export default async function AttractionPage({ params }: Props) {
         <section>
           <h2 className={heading}>Location and directions</h2>
           <p className="about-text">{attraction.place}, Perú</p>
+          {visitor && <p className="about-text"><strong>Arrival point:</strong> {visitor.stop}</p>}
           <p className="about-text"><a href={map}>Find {attraction.name} on Google Maps</a></p>
         </section>
         <section>
           <h2 className={heading}>Frequently asked questions</h2>
           <h3>{attraction.question}</h3>
           <p className="about-text">{attraction.answer}</p>
+          {visitor && <>
+            <h3>{visitor.question}</h3>
+            <p className="about-text">{visitor.answer}</p>
+          </>}
         </section>
         <section>
           <h2 className={heading}>Sources</h2>
           <ul>
             <li><a href={attraction.source}>Visitor and heritage information</a></li>
+            {visitor && <li><a href={visitor.source.url}>{visitor.source.label}</a></li>}
             {source && source !== attraction.source && <li><a href={source}>Additional visitor information</a></li>}
             {operator.url && operator.url !== attraction.source && <li><a href={operator.url}>{operator.name}</a></li>}
           </ul>

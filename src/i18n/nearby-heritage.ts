@@ -86,3 +86,107 @@ export const heritageManagement: Record<string, { name: string; details: string;
   andahuaylillas: { name: "Asociación SEMPA, Ruta del Barroco Andino", details: "The Jesuit association manages the visitor route that includes this church. Admissions support conservation and the Jesuit parishes’ social work. Confirm worship and sightseeing arrangements at the village square.", url: barroco },
   "la-compania": { name: "Asociación SEMPA, Ruta del Barroco Andino", details: "La Compañía is the Cusco city stop on the visitor route managed by the Jesuit association. Visit through the church’s designated entrance at Plaza de Armas.", url: barroco },
 };
+
+type Feature = { title: string; text: string };
+type VisitorDetail = {
+  kind: string;
+  stop: string;
+  arrival: string;
+  timing: string;
+  features: Feature[];
+  photo: string;
+  question: string;
+  answer: string;
+  source: { label: string; url: string };
+};
+
+export const heritageVisitorDetails: Record<string, VisitorDetail> = {
+  choqana: {
+    kind: "Inca-period riverside archaeological site",
+    stop: "South bank of the Vilcanota (Urubamba) River, east of Ollantaytambo",
+    arrival: "Use Ollantaytambo as the meeting point unless a local guide confirms a different start. A route description links Pachar and Ollantaytambo via Choqana, but ask which section is currently usable and whether to return the way you came. The map identifies the ruins, not a vehicle drop-off.",
+    timing: "Make the walk a standalone morning. Leave time for the return and avoid placing the visit immediately before a booked train. If using a through-walk, agree on which end your driver will meet you at before you leave.",
+    features: [
+      { title: "River approach", text: "The ruins sit along the approach to Ollantaytambo from the east. Take in the river and opposing slope before looking at the masonry to understand the relationship between the site and the valley corridor." },
+      { title: "Stone enclosures", text: "Compare the short enclosures in the surviving walls. Notice where stonework meets bedrock and how the usable ground narrows lower down the slope." },
+    ],
+    photo: "An oblique photograph from the established path shows wall thickness and the hillside grade. Use a second, wider frame only where the river is visible from stable ground.",
+    question: "Does the map identify the trailhead?",
+    answer: "The search points to the ruins. Confirm the legal foot approach and return in person before setting out, especially after rain.",
+    source: { label: "Published Pachar–Choqana–Ollantaytambo walk", url: "https://www.packing-up-the-pieces.com/maps-routes/pachar-choqana-ollantaytambo/" },
+  },
+  qespiwanka: {
+    kind: "Museum of the Qhapaq Ñan and Urubamba’s heritage",
+    stop: "Visitor entrance of Casa Hacienda Pino, Urubamba",
+    arrival: "For a road transfer from Ollantaytambo, give the driver both the museum name and Casa Hacienda Pino. From central Urubamba, ask the venue to confirm the walkable approach and entrance before leaving the plaza.",
+    timing: "Reserve about an hour for the permanent galleries and extra time for any temporary exhibition. Read the valley-network displays before visiting other stops so you can recognise the different road connections.",
+    features: [
+      { title: "From early networks to the Inca road system", text: "The first rooms put the Inca system in a longer Andean context by introducing Tiwanaku and Wari before the Tawantinsuyu. Compare which connections are regional and which belong to the later imperial network." },
+      { title: "The Urubamba valley and Wayna Qhapaq", text: "The middle rooms narrow the focus to roads within the valley and the estate of Qespiwanka. Use the maps to see where the valley connections fit within the wider network." },
+      { title: "Casa Pino and living traditions", text: "The last gallery moves from estates to haciendas and Urubamba traditions, including the Señor de Torrechayoq festivities. The house itself is an example of the later valley history examined in the display." },
+    ],
+    photo: "From the visitor approach, frame the entrance steps and façade together to show the building’s setting. Take indoor photographs only in spaces where museum staff allow them.",
+    question: "Am I visiting the original palace?",
+    answer: "The five-gallery museum is in Casa Hacienda Pino. It interprets the history of the Qespiwanka estate and palace.",
+    source: { label: "Ministry of Culture account of the restoration and museum installation", url: "https://www.gob.pe/institucion/culturacusco/noticias/1082201-ministerio-de-cultura-invirtio-mas-de-s-2-6-millones-en-recuperacion-e-implementacion-del-museo-de-qespiwanka" },
+  },
+  "sayri-tupac": {
+    kind: "Listed historic house and exterior architecture stop",
+    stop: "Corner of Plaza Manco II and Calle San Martín, Yucay",
+    arrival: "From Urubamba, use the valley road toward Yucay and ask for the Plaza Manco II corner at Calle San Martín. The national inventory lists about 3.1 km by road from Urubamba and 16.9 km from Calca.",
+    timing: "Allow roughly half an hour for a plaza and façade visit. If extending the walk toward the Yucay archaeological zone, check the public access first. The inventory lists a separate foot segment of about 900 metres.",
+    features: [
+      { title: "A protected village corner", text: "The national register gives the precise corner for the house. Compare the doorway facing the street with the boundary of the square to locate the building within the older settlement." },
+      { title: "Reading the doorway", text: "Start across the street to see the opening in proportion to the walls, then look at the outline and joints of the surviving masonry from the pavement." },
+    ],
+    photo: "Take a wider picture from the public square and an angled detail from Calle San Martín, leaving enough space for people using the corner.",
+    question: "Can I combine this with a longer Yucay heritage walk?",
+    answer: "Yes. Begin at Plaza Manco II and verify the onward public paths to the archaeological zone separately from the palace stop.",
+    source: { label: "Ministry of Culture historical monument register", url: "https://aulavirtual.cultura.pe/pluginfile.php/7084/mod_resource/content/1/relaciondemonumentoshistoricos.pdf" },
+  },
+  huaro: {
+    kind: "Andean Baroque parish church",
+    stop: "Plaza de Armas s/n, Huaro",
+    arrival: "Travel from Cusco along the South Valley road and request a drop-off at the Huaro town square. For a multi-church visit, arrange for the driver to collect you at the square before continuing separately to Canincunca.",
+    timing: "Keep 45–75 minutes for the square and church. Confirm the visiting slot if your trip coincides with a Mass, feast day or other parish activity.",
+    features: [
+      { title: "Renaissance proportions", text: "View the simple façade and roofline from across the square before approaching. The route’s catalogue describes a church built in stone, adobe and tile around the turn of the seventeenth century." },
+      { title: "Tadeo Escalante’s murals", text: "When the nave is open, scan the walls and ceiling as one painted program. The route attributes the scenes of death, judgement and the afterlife to Tadeo Escalante and relates their imagery to both Andean and colonial traditions." },
+      { title: "Murals and altar furnishings", text: "After viewing the painted surfaces, compare them with the retablos and devotional objects. Ask whether the route offers an explanation of specific panels while you are there." },
+    ],
+    photo: "Use the far side of Plaza de Armas for the full exterior and a closer public angle for the entrance. Follow the church’s rules inside, including any restriction on flash.",
+    question: "What is the difference between Huaro and Canincunca?",
+    answer: "Huaro is the village church with a large painted nave. Canincunca is a separate, smaller chapel on the road by the lagoon.",
+    source: { label: "Andean Baroque Route catalogue and mural history", url: "https://rutadelbarrocoandino.com/wp-content/uploads/2015/05/AF_RBAnew_catalogo2015_V18_RGB_WEB.pdf" },
+  },
+  canincunca: {
+    kind: "Seventeenth-century Andean Baroque chapel",
+    stop: "Signed chapel entrance near the Urcos lagoon, Huaro district",
+    arrival: "Ask the driver for the separate chapel entrance by the lagoon on the Cusco–Puno road. If arriving from Huaro village, confirm where the vehicle can stop safely and agree on the same pickup before entering.",
+    timing: "Make time for both the setting and the small nave. If the chapel is closed for worship or maintenance, use public viewpoints where available and continue to a confirmed open route stop.",
+    features: [
+      { title: "The pass and lagoon", text: "The chapel sits above the lagoon where the road passes through a gap in the hills. Look outward before entering to see how the location gives a small building a prominent position." },
+      { title: "Painted textiles and retablo", text: "The route describes a single nave with murals, gold bands and designs recalling the geometric pallais of Andean textiles. Compare the floral and bird motifs with the forms of the carved wooden retablo." },
+      { title: "An earlier surface behind the current altar", text: "The route records surviving evidence of the original painted altar in the central niche. Ask the site guide which elements can be clearly seen from the visitor route." },
+    ],
+    photo: "Frame the chapel from its public forecourt, then look for a permitted angle that places the roofline against the lagoon or surrounding hills.",
+    question: "Where do I check chapel admission?",
+    answer: "Confirm the current rate and included churches through the Andean Baroque Route or at the designated visitor entrance.",
+    source: { label: "Andean Baroque Route chapel description", url: "https://rutadelbarrocoandino.com/la-ruta/virgen-purificada-de-canincunca/" },
+  },
+  inkariy: {
+    kind: "Private museum of pre-Hispanic societies",
+    stop: "Museum entrance at km 53 on the Cusco–Calca–Urubamba road",
+    arrival: "Ask for Museo Inkariy at kilometre 53 rather than Museo Inka in Cusco. The ministry brochure identifies the museum stop as Paradero Museo. Confirm where the driver will wait or how you will continue by road.",
+    timing: "Set aside 90–120 minutes. If you have less time, choose contrasting rooms around a theme such as textiles and settlement, then finish with the Inca exhibit for context before an archaeological visit.",
+    features: [
+      { title: "Early societies and regional differences", text: "Begin with Caral and Chavín, then compare Paracas textiles with the coastal material in the Mochica and Nazca rooms. Read the room maps to keep the different regions and periods clear." },
+      { title: "From Wari to the later coastal societies", text: "Use the Wari gallery as a bridge from early regional traditions toward larger networks. Then contrast it with the later Lambayeque and Chimú material in the north-coast display." },
+      { title: "The Inca gallery", text: "Finish with the Cusco-centred Inca exhibit. Notice which practices can be compared with material shown earlier, before visiting the valley’s Inca sites." },
+    ],
+    photo: "Use the museum entrance sculpture and façade in the same shot from public visitor space. Check the rules for each exhibition room before taking pictures.",
+    question: "Where can I confirm the current entrance fee?",
+    answer: "Ask the museum directly at +51 984 666 698 or info@museoinkariy.com. Its official contact page lists current opening hours.",
+    source: { label: "Museo Inkariy exhibition rooms", url: "https://museoinkariy.com/salas/" },
+  },
+};
