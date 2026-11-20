@@ -1229,3 +1229,47 @@ body {
     gap: .6rem;
   }
 }
+
+.explore-hero .section-title {
+  margin-bottom: .75rem;
+}
+
+.explore-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.explore-hero-meta a {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.explore-info {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-wrap: anywhere;
+}
+
+.explore-info th,
+.explore-info td {
+  padding: .7rem .5rem;
+  border-bottom: 1px solid var(--color-gold);
+  text-align: left;
+  vertical-align: top;
+}
+
+.explore-info th {
+  width: 32%;
+}
+
+.explore-steps {
+  padding-inline-start: 1.5rem;
+  list-style: decimal;
+}
+
+.explore-steps li + li {
+  margin-top: .65rem;
+}
