@@ -6,11 +6,7 @@ import { siteUrl } from "@/i18n/site-url";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return guideLocales.flatMap((locale) => guideSlugs.map((slug) => ({ locale, slug })));
-}
+export const dynamic = "force-dynamic";
 
 async function resolveGuide(params: Props["params"]) {
   const { locale: requestedLocale, slug: requestedSlug } = await params;

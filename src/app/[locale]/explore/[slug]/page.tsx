@@ -10,11 +10,7 @@ import { siteUrl } from "@/i18n/site-url";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return attractions.map(({ slug }) => ({ locale: "en", slug }));
-}
+export const dynamic = "force-dynamic";
 
 async function getAttraction(params: Props["params"]) {
   const { locale, slug } = await params;
