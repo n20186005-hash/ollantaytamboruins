@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { guideLocales, guideSlugs } from "@/i18n/guides";
+import { attractions } from "@/i18n/nearby";
 import { siteUrl } from "@/i18n/site-url";
 
 export const dynamic = "force-static";
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/${locale}`,
       alternates: alternates(homeLocales),
     })),
+    ...attractions.map(({ slug }) => ({ url: `${siteUrl}/en/explore/${slug}` })),
     ...guideSlugs.flatMap((slug) => guideLocales.map((locale) => ({
       url: `${siteUrl}/${locale}/guide/${slug}`,
       alternates: alternates(guideLocales, `/guide/${slug}`),

@@ -137,3 +137,40 @@ export const guides: Record<GuideLocale, Record<GuideSlug, Guide>> = {
     },
   },
 };
+
+export const practicalLabels = {
+  en: { about: "Management and visitor access", basic: "Basic information", location: "Location", transport: "Getting there", reviews: "Visitor ratings and reviews", current: "See current ratings and reviews on Google Maps", check: "Official visitor information" },
+  es: { about: "Gestión y acceso", basic: "Información básica", location: "Ubicación", transport: "Cómo llegar", reviews: "Valoraciones y opiniones", current: "Ver valoraciones y opiniones actuales en Google Maps", check: "Información oficial para visitantes" },
+  zh: { about: "管理主体与参观安排", basic: "基础信息", location: "地点", transport: "交通方式", reviews: "游客评分与评价", current: "在 Google 地图查看最新评分和评价", check: "官方参观信息" },
+};
+
+export const guidePractical: Record<GuideLocale, Record<GuideSlug, { about: string; transport: string }>> = {
+  en: {
+    "tickets-and-hours": { about: "DDC Cusco manages the archaeological park and publishes visitor rules and hours. COSITUC administers the Cusco Tourist Ticket used for entry.", transport: "From Cusco, take the road via Chinchero and Urubamba or via Pisac and Calca. From Ollantaytambo town, walk to the signed archaeological entrance." },
+    "temple-of-the-sun": { about: "The Temple of the Sun lies within the archaeological park managed by DDC Cusco. On-site staff set the upper-sector routes that are open to visitors.", transport: "Arrive at the main park entrance in Ollantaytambo, then follow the permitted stair route to the temple sector. Check with staff about closures." },
+    "train-to-machu-picchu": { about: "Rail operators manage passenger check-in and boarding for their booked services. The Ministry of Culture manages admission to the Machu Picchu citadel separately.", transport: "From the town center, descend to Avenida Ferrocarril. Confirm your operator’s boarding point and reporting time before leaving the park or your accommodation." },
+  },
+  es: {
+    "tickets-and-hours": { about: "La DDC Cusco gestiona el parque arqueológico y publica sus horarios y normas. COSITUC administra el Boleto Turístico del Cusco.", transport: "Desde Cusco se puede llegar por Chinchero y Urubamba o por Pisac y Calca. Desde el pueblo, camina hasta el acceso señalizado del parque." },
+    "temple-of-the-sun": { about: "El Templo del Sol forma parte del parque arqueológico que gestiona la DDC Cusco. El personal del parque indica qué rutas del sector alto están abiertas.", transport: "Llega a la entrada principal del parque y sigue la escalinata autorizada hacia el sector del templo. Consulta al personal si hay cierres." },
+    "train-to-machu-picchu": { about: "Cada operador ferroviario coordina el registro y el embarque de su servicio. El Ministerio de Cultura gestiona el acceso a la ciudadela de Machu Picchu por separado.", transport: "Desde el centro, baja hacia la avenida Ferrocarril. Confirma el punto y la hora de presentación antes de salir del parque o del alojamiento." },
+  },
+  zh: {
+    "tickets-and-hours": { about: "库斯科文化主管部门（DDC Cusco）管理考古公园并发布开放时间与参观规定。入场使用的库斯科旅游通票由 COSITUC 管理。", transport: "从库斯科可经钦切罗、乌鲁班巴前往，也可经皮萨克、卡尔卡抵达。到奥扬泰坦博镇后，步行至有标示的考古公园入口。" },
+    "temple-of-the-sun": { about: "太阳神庙位于库斯科文化主管部门管理的考古公园内。游客可向公园工作人员查问上层路线的当天开放情况。", transport: "到奥扬泰坦博考古公园主入口后，按现场指示沿开放台阶前往神庙区。遇到封闭路段时向工作人员核对替代路线。" },
+    "train-to-machu-picchu": { about: "各铁路运营方负责其班次的报到和乘车安排。马丘比丘遗址的入场由秘鲁文化部另行管理。", transport: "从镇中心往铁路大道下行。离开考古公园或住宿地前，先核对车票上的报到地点和时间。" },
+  },
+};
+
+export const guideRatings: Partial<Record<GuideSlug, { score: number; count: number; source: string }>> = {
+  "tickets-and-hours": {
+    score: 4.8,
+    count: 26840,
+    source: "https://www.google.com/travel/hotels/entity/ChoI2MyXw73e-aiuARoNL2cvMTFnN3owaHh3ORAB",
+  },
+  "temple-of-the-sun": {
+    score: 4.8,
+    count: 1014,
+    source: "https://www.google.com/travel/hotels/entity/ChkI48Oh-57lrIYsGg0vZy8xMWZqNHZnamtjEAE?ap=ugEGcHJpY2Vz&ts=CAEaBAoCGgAqBAoAGgA",
+  },
+};

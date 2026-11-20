@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { guideLabels, guideLocales, guidePlaces, guideSlugs, guideSources, guides } from "@/i18n/guides";
+import { guideLabels, guideLocales, guidePlaces, guideSlugs, guideSources, guides, guidePractical, practicalLabels, guideRatings } from "@/i18n/guides";
 import { siteUrl } from "@/i18n/site-url";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -41,6 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function GuidePage({ params }: Props) {
   const { locale, slug, guide } = await resolveGuide(params);
   const labels = guideLabels[locale];
+  const practical = practicalLabels[locale];
+  const info = guidePractical[locale][slug];
+  const rating = guideRatings[slug];
   const map = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(guidePlaces[slug])}`;
   return (
     <main>
@@ -55,11 +58,26 @@ export default async function GuidePage({ params }: Props) {
           ))}
         </div>
       </header>
-      <article className="section" style={{ maxWidth: "820px", margin: "auto", paddingTop: "8rem" }}>
+      <article className="section explore-guide">
         <nav aria-label={labels.home}><Link href={`/${locale}`}>{labels.home}</Link></nav>
         <h1 className="section-title">{guide.title}</h1>
         <p className="about-text">{guide.intro}</p>
         <p><a href={map}>{labels.map}</a></p>
+        <section>
+          <h2 className="section-title">{practical.about}</h2>
+          <p className="about-text">{info.about}</p>
+        </section>
+        <section>
+          <h2 className="section-title">{practical.basic}</h2>
+          <dl className="explore-facts">
+            <dt>{practical.location}</dt><dd>{guidePlaces[slug]}</dd>
+            <dt>{practical.check}</dt><dd><a href={guideSources[slug][0][1]}>{guideSources[slug][0][0]}</a></dd>
+          </dl>
+        </section>
+        <section>
+          <h2 className="section-title">{practical.transport}</h2>
+          <p className="about-text">{info.transport}</p>
+        </section>
         {guide.sections.map(([heading, body]) => (
           <section key={heading} style={{ marginTop: "2rem" }}>
             <h2 className="section-title" style={{ fontSize: "1.8rem" }}>{heading}</h2>
@@ -74,6 +92,17 @@ export default async function GuidePage({ params }: Props) {
               <p className="about-text">{answer}</p>
             </div>
           ))}
+        </section>
+        <section>
+          <h2 className="section-title">{practical.reviews}</h2>
+          {rating && (
+            <p className="about-text">
+              <strong>{rating.score.toLocaleString(locale)} / 5</strong>
+              {" · "}{rating.count.toLocaleString(locale)} {({ en: "reviews", es: "opiniones", zh: "条评价" })[locale]}
+              <br /><a href={rating.source}>Google Travel</a>{" · "}{labels.checked}
+            </p>
+          )}
+          <p className="about-text"><a href={map}>{practical.current}</a></p>
         </section>
         <section style={{ marginTop: "2rem" }}>
           <h2 className="section-title" style={{ fontSize: "1.8rem" }}>{labels.sources}</h2>
