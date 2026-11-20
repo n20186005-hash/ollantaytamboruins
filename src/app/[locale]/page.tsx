@@ -7,6 +7,9 @@ import { useTheme } from "next-themes";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { StructuredData } from "@/components/StructuredData";
+import { areas, attractions, nearbyLabels } from "@/i18n/nearby";
+import { guideLabels, guideSlugs, guides } from "@/i18n/guides";
+import { generateSchema } from "../schema";
 import galleryImagesData from "@/gallery-data.json";
 
 const MAPS_URL = "https://maps.app.goo.gl/kt9zoMAY7M3ShhEC8";
@@ -84,7 +87,7 @@ function ThemeToggle() {
 }
 
 function Nav() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -92,14 +95,15 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <nav className={`site-nav ${scrolled ? "scrolled" : ""}`}>
+    <nav className={`site-nav homepage-nav ${scrolled ? "scrolled" : ""}`}>
       <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
         <span style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 700, color: "#fff" }}>
           Ollantaytambo
         </span>
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+      <div className="homepage-nav-controls">
         <div className="nav-links">
+          <a href="#nearby-attractions">{nearbyLabels[locale]}</a>
           <a href="#about">{t.nav.about}</a>
           <a href="#architecture">{t.nav.architecture}</a>
           <a href="#culture">{t.nav.culture}</a>
@@ -111,6 +115,7 @@ function Nav() {
           <a href="#reviews">{t.nav.reviews}</a>
           <a href="#faq">{t.nav.faq}</a>
           <a href="#location">{t.nav.location}</a>
+          {locale !== "qu" && <a href="#visit-guides">{guideLabels[locale].heading}</a>}
         </div>
         <ThemeToggle />
         <LanguageSwitcher />
@@ -678,6 +683,44 @@ function Location() {
   );
 }
 
+function NearbyAttractions() {
+  const { locale } = useLang();
+  return (
+    <section className="section" id="nearby-attractions">
+      <h2 className="section-title">{nearbyLabels[locale]}</h2>
+      {Object.entries(areas).map(([area, details]) => (
+        <div key={area} style={{ marginTop: "2rem" }}>
+          <h3>{details[locale]}</h3>
+          <div className="highlights-grid">
+            {attractions.filter((item) => item.area === area).map((item) => (
+              <Link key={item.slug} className="highlight-item" href={`/en/explore/${item.slug}`} hrefLang="en" lang="en">
+                {item.name}{locale !== "en" && " · EN"}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+function VisitGuides() {
+  const { locale } = useLang();
+  if (locale === "qu") return null;
+  return (
+    <section className="section" id="visit-guides">
+      <h2 className="section-title">{guideLabels[locale].heading}</h2>
+      <div className="highlights-grid">
+        {guideSlugs.map((slug) => (
+          <Link className="highlight-item" key={slug} href={`/${locale}/guide/${slug}`}>
+            {guides[locale][slug].title}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const { t } = useLang();
   return (
@@ -715,6 +758,7 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
   const params = React.use(props.params);
   return (
     <LangProvider initialLocale={params.locale as "en" | "zh" | "es" | "qu"}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSchema(params.locale)) }} />
       <StructuredData />
       <Nav />
       <Hero />
@@ -724,6 +768,8 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
       <OllantaytamboHistory />
       <Visiting />
       <Transportation />
+      <VisitGuides />
+      <NearbyAttractions />
       <Tips />
       <Gallery />
       <Reviews />

@@ -1,55 +1,28 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
+import { guideLocales, guideSlugs } from "@/i18n/guides";
+import { attractions } from "@/i18n/nearby";
+import { siteUrl } from "@/i18n/site-url";
 
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.CURRENT_SITE_DOMAIN 
-    ? `https://${process.env.CURRENT_SITE_DOMAIN}` 
-    : 'https://ollantaytamboruins.com';
-
-  const languages = {
-    es: `${baseUrl}/es`,
-    en: `${baseUrl}/en`,
-    zh: `${baseUrl}/zh`,
-    qu: `${baseUrl}/qu`,
-  };
+  const homeLocales = ["en", "es", "zh", "qu"];
+  const alternates = (locales: readonly string[], path = "") => ({
+    languages: {
+      ...Object.fromEntries(locales.map((locale) => [locale, `${siteUrl}/${locale}${path}`])),
+      "x-default": `${siteUrl}/en${path}`,
+    },
+  });
 
   return [
-    {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-      alternates: {
-        languages,
-      },
-    },
-    {
-      url: `${baseUrl}/es`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-      alternates: {
-        languages,
-      },
-    },
-    {
-      url: `${baseUrl}/zh`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-      alternates: {
-        languages,
-      },
-    },
-    {
-      url: `${baseUrl}/qu`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-      alternates: {
-        languages,
-      },
-    },
+    ...homeLocales.map((locale) => ({
+      url: `${siteUrl}/${locale}`,
+      alternates: alternates(homeLocales),
+    })),
+    ...attractions.map(({ slug }) => ({ url: `${siteUrl}/en/explore/${slug}` })),
+    ...guideSlugs.flatMap((slug) => guideLocales.map((locale) => ({
+      url: `${siteUrl}/${locale}/guide/${slug}`,
+      alternates: alternates(guideLocales, `/guide/${slug}`),
+    }))),
   ];
 }
