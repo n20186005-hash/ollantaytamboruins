@@ -7,6 +7,8 @@ import { useTheme } from "next-themes";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { StructuredData } from "@/components/StructuredData";
+import { guideLabels, guideSlugs, guides } from "@/i18n/guides";
+import { generateSchema } from "../schema";
 import galleryImagesData from "@/gallery-data.json";
 
 const MAPS_URL = "https://maps.app.goo.gl/kt9zoMAY7M3ShhEC8";
@@ -84,7 +86,7 @@ function ThemeToggle() {
 }
 
 function Nav() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -111,6 +113,7 @@ function Nav() {
           <a href="#reviews">{t.nav.reviews}</a>
           <a href="#faq">{t.nav.faq}</a>
           <a href="#location">{t.nav.location}</a>
+          {locale !== "qu" && <a href="#visit-guides">{guideLabels[locale].heading}</a>}
         </div>
         <ThemeToggle />
         <LanguageSwitcher />
@@ -678,6 +681,23 @@ function Location() {
   );
 }
 
+function VisitGuides() {
+  const { locale } = useLang();
+  if (locale === "qu") return null;
+  return (
+    <section className="section" id="visit-guides">
+      <h2 className="section-title">{guideLabels[locale].heading}</h2>
+      <div className="highlights-grid">
+        {guideSlugs.map((slug) => (
+          <Link className="highlight-item" key={slug} href={`/${locale}/guide/${slug}`}>
+            {guides[locale][slug].title}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const { t } = useLang();
   return (
@@ -715,6 +735,7 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
   const params = React.use(props.params);
   return (
     <LangProvider initialLocale={params.locale as "en" | "zh" | "es" | "qu"}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSchema(params.locale)) }} />
       <StructuredData />
       <Nav />
       <Hero />
@@ -724,6 +745,7 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
       <OllantaytamboHistory />
       <Visiting />
       <Transportation />
+      <VisitGuides />
       <Tips />
       <Gallery />
       <Reviews />

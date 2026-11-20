@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { siteUrl } from "@/i18n/site-url";
 import { useLang } from "@/components/LangProvider";
 
 export function StructuredData() {
@@ -11,8 +12,8 @@ export function StructuredData() {
     "@type": "TouristAttraction",
     "name": "Ollantaytambo",
     "description": t.about.p1,
-    "url": "https://ollantaytamboruins.com",
-    "image": "https://ollantaytamboruins.com/gallery/1.jpg",
+    "url": `${siteUrl}/${locale}`,
+    "image": `${siteUrl}/gallery/ollantaytambo-archeological-site%20(1).jpg`,
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",

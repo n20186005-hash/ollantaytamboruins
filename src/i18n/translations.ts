@@ -36,7 +36,7 @@ export const translations: Record<Locale, Translations> = {
       p1: "在秘鲁库斯科圣谷（Sacred Valley）的北端，矗立着印加帝国最独特、最完整的考古遗址之一——奥扬泰坦博（Ollantaytambo）。这座集军事要塞、皇家庄园与宗教祭祀中心于一体的古老城镇，是印加文明鼎盛时期的杰出代表。\n\n与许多印加遗址不同，奥扬泰坦博不仅是一处考古遗址，更是一个至今仍有居民生活的「活古城」。这里的石砌街道、梯田系统和灌溉水渠，依然按照600年前的印加城市规划在运转。它也是通往马丘比丘的重要门户，无数旅行者从这里搭乘火车前往印加圣城。",
       p2: "奥扬泰坦博最令人震撼的，是其正面墙（Frontal Wall）上巨大的多边形巨石。这些来自附近山脉的粉红色流纹岩/斑岩（Pink Rhyolite / Porphyry）巨石，每块重达50吨以上，被精确切割成复杂的多边形，严丝合缝地嵌入墙体。在没有任何金属工具和车轮的印加时代，这些巨石是如何被开采、运输并精确安装的，至今仍是考古学和工程学的未解之谜。",
       highlights: { title: "景点亮点", items: ["巨石神殿: 正面墙六块巨石，每块重50吨以上", "活古城: 至今仍有居民生活的印加古城", "创世神之脸 (Face of Viracocha): 对面 Pinkuylluna 山壁上大自然与古人共雕的巨大神明面庞", "太阳观测台: 祭祀太阳神Inti的神圣场所", "梯田要塞: 印加军事防御工程的典范", "圣谷门户: 通往马丘比丘的必经之地"] },
-      bestTime: { title: "最佳参观时间", content: "07:00-17:00\n建议清晨参观，避开人群且光线柔和\n雨季（12月-3月）需注意防滑", tip: "💡 建议: 清晨07:00开园时到达，游客最少且能拍摄无人的巨石神殿" }
+      bestTime: { title: "最佳参观时间", content: "07:00-16:30\n建议清晨参观，避开人群且光线柔和\n雨季（12月-3月）需注意防滑", tip: "💡 建议: 清晨07:00开园时到达，游客最少且能拍摄无人的巨石神殿" }
     },
     architecture: {
       subtitle: "巨石建筑之谜：50吨斑岩如何飞越山谷？",
@@ -53,8 +53,8 @@ export const translations: Record<Locale, Translations> = {
     },
     visiting: {
       title: "游览指南",
-      hours: { title: "开放时间", content: "07:00 - 17:00\n全年开放", note: "⚠️ 提醒：建议白天参观，安全和光线更佳。" },
-      price: { title: "门票费用", content: "不可单买门票\n需凭库斯科游客通票\n（Boleto Turístico del Cusco）入场\n入口处可买部分通票(Circuit 3)", note: "⚠️ 重要提示：奥扬泰坦博不设独立售票处，必须持有库斯科游客通票（BTC）。", ticketTip: "🎫 官方票务指南：景点不设单一门票。游客需购买库斯科游客通票（Boleto Turístico）。虽然遗址入口处通常可以买到包含此景点的‘部分通票（Circuit 3）’，但为了节省排队时间，强烈建议在库斯科市区的 <a href='https://www.culturacusco.gob.pe/' target='_blank' rel='noopener noreferrer' style='color:inherit;text-decoration:underline;'>[官方网点]</a> 提前买好。" },
+      hours: { title: "开放时间", content: "07:00 - 16:30\n以库斯科文化主管部门公布时间为准", note: "⚠️ 提醒：建议白天参观，安全和光线更佳。" },
+      price: { title: "门票费用", content: "不可单买门票\n需凭库斯科游客通票\n（Boleto Turístico del Cusco）入场\n入口处可买部分通票(Circuit 3)", note: "⚠️ 重要提示：奥扬泰坦博不设独立售票处，必须持有库斯科游客通票（BTC）。", ticketTip: "🎫 官方票务指南：景点不设单一门票。游客需购买库斯科游客通票（Boleto Turístico）。虽然遗址入口处通常可以买到包含此景点的‘部分通票（Circuit 3）’，但请向 COSITUC 核对当日售票地点： <a href='https://cosituc.gob.pe/preguntas-frecuentes/' target='_blank' rel='noopener noreferrer' style='color:inherit;text-decoration:underline;'>COSITUC 官方购票说明</a>。" },
       duration: { title: "建议游览时长", content: "建议预留 2 - 3 小时", note: "可以结合圣谷（Sacred Valley）游览，安排半天时间参观奥扬泰坦博及附近遗址。" },
       tips: { title: "游览建议物品", items: ["舒适的步行鞋（石板路较滑，且有爬坡）",
         "预防高反药物或古柯叶（海拔约2792米，请预防高山症 Soroche）", "防晒用品与墨镜（高原紫外线极强）", "相机和备用电池", "帽子和保暖衣物（早晚温差大）", "水和零食", "当地地图或导游APP", "氧气罐（可在库斯科药店购买，以防高反）"] },
@@ -86,8 +86,8 @@ export const translations: Record<Locale, Translations> = {
     gallery: { title: "精彩照片", viewMore: "在 Google Maps 查看更多相片" },
     reviews: { title: "旅行者手记 (Traveler Insights)", subtitle: "来自奥扬泰坦博的声音：Google Maps 真实见证", viewMore: "在 Google Maps 查看更多见证" },
     faq: { title: "常见问题", subtitle: "深入了解奥扬泰坦博", items: [
-      { question: "奥扬泰坦博的开放时间是？", answer: "奥扬泰坦博的开放时间为每天07:00-17:00，全年无休。但由于是户外遗址，建议白天参观，安全和光线更佳。" },
-      { question: "参观奥扬泰坦博需要门票吗？", answer: "需要。奥扬泰坦博不能在门口单独买票，必须凭库斯科游客通票（Boleto Turístico del Cusco）入场。通票分为以下几种：\n• 全套通票（130索尔，10天有效）：包含所有遗址\n• Circuit 3（70索尔，2天有效）：包含奥扬泰坦博、Pisac、Chinchero、Moray等\n虽然遗址入口处通常可以买到包含此景点的‘部分通票（Circuit 3）’，但为了节省排队时间，强烈建议在库斯科市区的官方网点购买，避免被宰。通票价格可能会变动，以官方公布为准。" },
+      { question: "奥扬泰坦博的开放时间是？", answer: "奥扬泰坦博的开放时间为07:00–16:30，出发前可向库斯科文化主管部门核对。但由于是户外遗址，建议白天参观，安全和光线更佳。" },
+      { question: "参观奥扬泰坦博需要门票吗？", answer: "需要。奥扬泰坦博不能在门口单独买票，必须凭库斯科游客通票（Boleto Turístico del Cusco）入场。通票分为以下几种：\n• 全套通票（130索尔，10天有效）：包含所有遗址\n• Circuit 3（70索尔，2天有效）：包含奥扬泰坦博、Pisac、Chinchero、Moray等\n虽然遗址入口处通常可以买到包含此景点的‘部分通票（Circuit 3）’，但请向 COSITUC 核对当日售票地点：官方网点购买，避免被宰。通票价格可能会变动，以官方公布为准。" },
       { question: "奥扬泰坦博有什么特别之处？", answer: "奥扬泰坦博因其巨大的多边形石块和「活古城」的特色而闻名。它展现了印加帝国杰出的石工技术——巨大的石块重达50吨以上，被精确切割成多边形，完美嵌入墙体，无需任何灰泥或水泥。此外，这里至今仍有居民生活，是了解印加文化的活化石。它也是通往马丘比丘的重要门户。" },
       { question: "如何前往奥扬泰坦博？有什么交通建议？", answer: "奥扬泰坦博位于秘鲁库斯科大区，距离库斯科约72公里。从库斯科Pavitos街乘坐小巴约2小时可达。\n\n⚠️ 重要交通建议：\n1. 推荐从库斯科包车前往，节省时间且舒适（约1.5小时）\n2. 也可以乘坐小巴，票价约10-15索尔\n3. 具体导航可在 Google Maps 中搜索Ollantaytambo, Cusco\n4. 也可以参加当地旅行团，包含交通和导游讲解" },
       { question: "游览奥扬泰坦博需要注意什么？有什么安全建议？", answer: "游览时需要注意：\n1. ⚠️ 高原反应：奥扬泰坦博海拔约2792米，比库斯科低，但仍需注意。刚到达库斯科的游客建议先适应1-2天再前往。可准备古柯叶或氧气罐。\n2. 🌞 防晒：高原紫外线极强，即使阴天也要涂防晒霜，戴墨镜和帽子\n3. 👟 防滑：石板路较滑，穿防滑鞋。攀登梯田时特别注意脚下\n4. 🏛️ 文化尊重：不要攀爬墙体，不要在遗址上乱涂乱画\n5. 💰 安全：保管好个人物品，市中心游客较多，提防小偷\n6. 🎫 门票：记住必须买通票，不能单独买票" },
@@ -111,7 +111,7 @@ export const translations: Record<Locale, Translations> = {
       p1: "At the northern end of the Sacred Valley of the Incas in Cusco, Peru, stands one of the most unique and complete archaeological sites of the Inca Empire—Ollantaytambo. This ancient town, integrating military fortress, royal estate, and religious center, is an outstanding representative of the Inca civilization at its peak.\n\nUnlike many Inca sites, Ollantaytambo is not just an archaeological site, but a 'living ancient city' where residents still live today. The stone-paved streets, terrace systems, and irrigation canals here still operate according to the Inca urban planning from 600 years ago. It is also an important gateway to Machu Picchu, from which countless travelers take the train to the Inca holy city.",
       p2: "The most awe-inspiring feature of Ollantaytambo is the massive polygonal stones on its Frontal Wall. These pink rhyolite/porphyry megaliths from nearby mountains weigh over 50 tons each, precisely cut into complex polygons and seamlessly fitted into the wall. In the Inca era, without any metal tools or wheels, how these megaliths were quarried, transported, and precisely installed remains an unsolved mystery in archaeology and engineering.",
       highlights: { title: "Highlights", items: ["Megalithic Temple: Six megalithic stones, each over 50 tons", "Living City: An ancient Inca town still inhabited today", "Face of Viracocha: A massive deity face carved by nature and ancients on the opposite Pinkuylluna cliff", "Intihuatana: Sacred solar observatory", "Terrace Fortress: Model of Inca military defense", "Sacred Valley Gateway: Essential stop to Machu Picchu"] },
-      bestTime: { title: "Best Time to Visit", content: "07:00-17:00\nEarly morning recommended for fewer crowds and soft light\nRainy season (Dec-Mar): watch for slippery paths", tip: "💡 Tip: Arrive at 07:00 when the site opens for the fewest tourists and best photos of the megalithic temple" }
+      bestTime: { title: "Best Time to Visit", content: "07:00-16:30\nEarly morning recommended for fewer crowds and soft light\nRainy season (Dec-Mar): watch for slippery paths", tip: "💡 Tip: Arrive at 07:00 when the site opens for the fewest tourists and best photos of the megalithic temple" }
     },
     architecture: {
       subtitle: "Megalithic Architecture Mystery: How Were 50-ton Porphyry Stones Transported Across the Valley?",
@@ -128,8 +128,8 @@ export const translations: Record<Locale, Translations> = {
     },
     visiting: {
       title: "Visit Guide",
-      hours: { title: "Opening Hours", content: "07:00 - 17:00\nOpen every day", note: "⚠️ Note: Daytime visits are recommended for better safety and lighting." },
-      price: { title: "Entrance Fees", content: "Cannot buy separate ticket\nMust have 'Cusco Tourist Ticket'\n(Boleto Turístico del Cusco)\nCircuit 3 available at entrance", note: "⚠️ Important Note: Ollantaytambo cannot be entered with a separate ticket at the gate, you must purchase the Tourist Ticket.", ticketTip: "🎫 Ticket Tip: The attraction does not sell single tickets. You must purchase the Cusco Tourist Ticket (Boleto Turístico). Although the 'Partial Ticket (Circuit 3)' which includes this site is usually available at the entrance, it is highly recommended to buy it in advance at official offices in Cusco to save queuing time." },
+      hours: { title: "Opening Hours", content: "07:00 - 16:30\nHours published by DDC Cusco", note: "⚠️ Note: Daytime visits are recommended for better safety and lighting." },
+      price: { title: "Entrance Fees", content: "Cannot buy separate ticket\nMust have 'Cusco Tourist Ticket'\n(Boleto Turístico del Cusco)\nCircuit 3 available at entrance", note: "⚠️ Important Note: Ollantaytambo cannot be entered with a separate ticket at the gate, you must purchase the Tourist Ticket.", ticketTip: "🎫 Ticket Tip: The attraction does not sell single tickets. You must purchase the Cusco Tourist Ticket (Boleto Turístico). Although the 'Partial Ticket (Circuit 3)' which includes this site is usually available at the entrance, check COSITUC for sales locations and buy it at the start of your visits." },
       duration: { title: "Recommended Duration", content: "Recommended: 2 - 3 hours", note: "Can be combined with Sacred Valley tour, plan half a day to visit Ollantaytambo and nearby sites." },
       tips: { title: "Recommended Items", items: ["Comfortable walking shoes (stone streets are slippery, and there's uphill walking)",
         "Altitude sickness medication or coca leaves (approx. 2792m altitude, prevent Soroche)", "Sun protection & sunglasses (extremely strong UV at high altitude)", "Camera and spare batteries", "Hat and warm clothing (large temperature difference between day and night)", "Water and snacks", "Local map or guide APP", "Oxygen canister (can be purchased at Cusco pharmacies for altitude sickness)"] },
@@ -161,7 +161,7 @@ export const translations: Record<Locale, Translations> = {
     gallery: { title: "Photo Gallery", viewMore: "View More Photos on Google Maps" },
     reviews: { title: "Traveler Insights", subtitle: "Voices from Ollantaytambo: Real Reviews from Google Maps", viewMore: "View More Reviews on Google Maps" },
     faq: { title: "Frequently Asked Questions", subtitle: "Learn More About Ollantaytambo", items: [
-      { question: "What are the opening hours of Ollantaytambo?", answer: "Ollantaytambo is open daily from 07:00-17:00, every day of the year. However, as it is an outdoor attraction, daytime visits are recommended for better safety and lighting." },
+      { question: "What are the opening hours of Ollantaytambo?", answer: "Ollantaytambo has published visiting hours of 07:00–16:30. Check with DDC Cusco before travelling. However, as it is an outdoor attraction, daytime visits are recommended for better safety and lighting." },
       { question: "Is there an entrance fee to see Ollantaytambo?", answer: "Yes. Ollantaytambo cannot be entered with a separate ticket at the gate. You must have the 'Cusco Tourist Ticket' (Boleto Turístico del Cusco). The ticket has several options:\n• Full Ticket (130 soles, valid 10 days): Includes all sites\n• Circuit 3 (70 soles, valid 2 days): Includes Ollantaytambo, Pisac, Chinchero, Moray\nAlthough the 'Partial Ticket (Circuit 3)' is usually available at the entrance, it is highly recommended to buy it in advance at official offices in Cusco to avoid scams and save queuing time. Ticket prices may change, subject to official announcement." },
       { question: "What is special about Ollantaytambo?", answer: "Ollantaytambo is famous for its massive polygonal stones and its characteristic as a 'living ancient city'. It demonstrates the outstanding stonework techniques of the Inca Empire—the huge stones weigh over 50 tons, were precisely cut into polygons, and perfectly embedded in the wall without any mortar or cement. In addition, residents still live here today, making it a living fossil for understanding Inca culture. It is also an important gateway to Machu Picchu." },
       { question: "How to get to Ollantaytambo? Any transportation recommendations?", answer: "Ollantaytambo is located in the Cusco region of Peru, about 72 kilometers from Cusco. You can take a minibus from Pavitos Street in Cusco, about 2 hours.\n\n⚠️ Important Transportation Recommendations:\n1. Recommended to arrange private transfer from Cusco, saves time and comfortable (about 1.5 hours)\n2. Can also take minibus, ticket about 10-15 soles\n3. For specific navigation, search for 'Ollantaytambo, Cusco' in Google Maps\n4. You can also join a local tour, which includes transportation and guide explanation" },
@@ -186,7 +186,7 @@ export const translations: Record<Locale, Translations> = {
       p1: "En el extremo norte del Valle Sagrado de los Incas en Cusco, Perú, se encuentra uno de los sitios arqueológicos más únicos y completos del Imperio Inca: Ollantaytambo. Este antiguo pueblo, que integra fortaleza militar, hacienda real y centro religioso, es un representante excepcional de la civilización inca en su apogeo.\n\nA diferencia de muchos sitios incas, Ollantaytambo no es solo un sitio arqueológico, sino una 'ciudad antigua viva' donde los residentes todavía viven hoy. Las calles empedradas, los sistemas de terrazas y los canales de riego aquí todavía funcionan según la planificación urbana inca de hace 600 años. También es una puerta importante a Machu Picchu, desde donde countless viajeros toman el tren a la ciudad santa inca.",
       p2: "Lo más impresionante de Ollantaytambo son las masivas piedras poligonales en su Muro Frontal. Estas megalitas de riolita/pórfido rosa de las montañas cercanas pesan más de 50 toneladas cada una, cortadas precisamente en polígonos complejos y encajadas perfectamente en la pared. En la era inca, sin herramientas de metal ni ruedas, cómo estas megalitas fueron extraídas, transportadas e instaladas precisamente sigue siendo un misterio sin resolver en arqueología e ingeniería.",
       highlights: { title: "Puntos Destacados", items: ["Templo Megalítico: Seis piedras megalíticas, cada una de más de 50 toneladas", "Ciudad Viva: Un antiguo pueblo inca todavía habitado hoy", "Rostro de Viracocha: Un rostro de deidad masivo tallado por la naturaleza y los antiguos en el acantilado de Pinkuylluna opuesto", "Intihuatana: Sagrado observatorio solar", "Fortaleza de Terrazas: Modelo de defensa militar inca", "Puerta del Valle Sagrado: Parada esencial a Machu Picchu"] },
-      bestTime: { title: "Mejor Época para Visitar", content: "07:00-17:00\nSe recomienda temprano en la mañana para menos turistas y luz suave\nTemporada de lluvias (dic-mar): cuidado con caminos resbaladizos", tip: "💡 Consejo: Llegue a las 07:00 cuando el sitio abre para menos turistas y mejores fotos del templo megalítico" }
+      bestTime: { title: "Mejor Época para Visitar", content: "07:00-16:30\nSe recomienda temprano en la mañana para menos turistas y luz suave\nTemporada de lluvias (dic-mar): cuidado con caminos resbaladizos", tip: "💡 Consejo: Llegue a las 07:00 cuando el sitio abre para menos turistas y mejores fotos del templo megalítico" }
     },
     architecture: {
       subtitle: "Misterio de Arquitectura Megalítica: ¿Cómo se Transportaron Piedras de Pórfido de 50 Toneladas a Través del Valle?",
@@ -203,8 +203,8 @@ export const translations: Record<Locale, Translations> = {
     },
     visiting: {
       title: "Guía de Visita",
-      hours: { title: "Horario de Apertura", content: "07:00 - 17:00\nAbierto todos los días", note: "⚠️ Nota: Se recomienda visitar durante el día para mejor seguridad e iluminación." },
-      price: { title: "Entrada", content: "No se puede comprar entrada separada\nRequiere 'Boleto Turístico del Cusco'\nCircuito 3 disponible en la entrada", note: "⚠️ Nota Importante: Ollantaytambo no se puede ingresar con una entrada separada en la puerta, debe comprar el Boleto Turístico.", ticketTip: "🎫 Consejo de Entrada: No se venden entradas individuales. Debe comprar el Boleto Turístico del Cusco. Aunque el 'Boleto Parcial (Circuito 3)' que incluye este sitio suele estar disponible en la entrada, se recomienda encarecidamente comprarlo por adelantado en las oficinas oficiales de Cusco para ahorrar tiempo de fila." },
+      hours: { title: "Horario de Apertura", content: "07:00 - 16:30\nHorario publicado por la DDC Cusco", note: "⚠️ Nota: Se recomienda visitar durante el día para mejor seguridad e iluminación." },
+      price: { title: "Entrada", content: "No se puede comprar entrada separada\nRequiere 'Boleto Turístico del Cusco'\nCircuito 3 disponible en la entrada", note: "⚠️ Nota Importante: Ollantaytambo no se puede ingresar con una entrada separada en la puerta, debe comprar el Boleto Turístico.", ticketTip: "🎫 Consejo de Entrada: No se venden entradas individuales. Debe comprar el Boleto Turístico del Cusco. Aunque el 'Boleto Parcial (Circuito 3)' que incluye este sitio suele estar disponible en la entrada, consulta los puntos de venta de COSITUC y compra el boleto al empezar las visitas." },
       duration: { title: "Duración Recomendada", content: "Recomendado: 2 - 3 horas", note: "Puede combinarse con un tour del Valle Sagrado, planee medio día para visitar Ollantaytambo y sitios cercanos." },
       tips: { title: "Qué llevar", items: ["Zapatos cómodos para caminar (las calles de piedra son resbaladizas, y hay subida)",
         "Medicamentos para el mal de altura u hojas de coca (aprox. 2792m de altitud)", "Protección solar y gafas de sol (UV fuerte en altura)", "Cámara y baterías de repuesto", "Sombrero y ropa abrigadora (gran diferencia de temperatura)", "Agua y snacks", "Mapa local o APP de guía", "Balón de oxígeno (se puede comprar en farmacias de Cusco)"] },
@@ -232,7 +232,7 @@ export const translations: Record<Locale, Translations> = {
     gallery: { title: "Galería", viewMore: "Ver Más Fotos en Google Maps" },
     reviews: { title: "Diario de Viajeros (Traveler Insights)", subtitle: "Voces de Ollantaytambo", viewMore: "Ver Más Reseñas en Google Maps" },
     faq: { title: "Preguntas Frecuentes", subtitle: "Aprenda Más Sobre Ollantaytambo", items: [
-      { question: "¿Cuál es el horario de Ollantaytambo?", answer: "07:00-17:00, todos los días." },
+      { question: "¿Cuál es el horario de Ollantaytambo?", answer: "La DDC Cusco publica un horario de 07:00 a 16:30." },
       { question: "¿Hay entrada?", answer: "Sí, requiere Boleto Turístico. Solo Circuito 3 (70 soles, válido 2 días): Incluye Ollantaytambo, Pisac, Chinchero, Moray. Aunque el 'Boleto Parcial (Circuito 3)' suele estar disponible en la entrada, se recomienda encarecidamente comprarlo por adelantado en las oficinas oficiales de Cusco." }
     ]},
     location: { title: "Ubicación", address: "PPVM+6J7, Ollantaytambo 08676\nPerú\n(Altitud: aprox. 2,792m)", openMaps: "Ver en Google Maps" },
@@ -253,7 +253,7 @@ export const translations: Record<Locale, Translations> = {
       p1: "Ollantaytambo, Cusco, Piruwpi. Inca fortress. Kayqa Inka runakunaq ruwayta rikuchin.\n\nOllantaytambo nisqa Inca fortress. Runakunaqa kachkan.",
       p2: "Ollantaytambo rumikuna 50 toneladas. Inka runakuna rumita junt'achanku.",
       highlights: { title: "Rikuy", items: ["Megalithic Wall: 6 stones", "Living City: Runakuna kachkan", "Viracocha uya: Pinkuylluna urqupi", "Intihuatana: Solar", "Terraces: Inca", "Gateway: Machu Picchu"] },
-      bestTime: { title: "Allin Punchaw", content: "07:00-17:00\nPaqarina allin", tip: "💡 Yachay: Paqarina hamuy" }
+      bestTime: { title: "Allin Punchaw", content: "07:00-16:30\nPaqarina allin", tip: "💡 Yachay: Paqarina hamuy" }
     },
     architecture: {
       subtitle: "Rumimanta Yachay",
@@ -270,7 +270,7 @@ export const translations: Record<Locale, Translations> = {
     },
     visiting: {
       title: "Puriy",
-      hours: { title: "Punchaw", content: "07:00-17:00\nSapa punchaw", note: "⚠️ Punchaw rikuy." },
+      hours: { title: "Punchaw", content: "07:00–16:30 (DDC Cusco)", note: "⚠️ Punchaw rikuy." },
       price: { title: "Qullqi", content: "Boleto Turístico", note: "⚠️ Boleto Turístico apamuy.", ticketTip: "🎫 Boleto Turístico 130 soles." },
       duration: { title: "Unay", content: "2 - 3 ura", note: "Sacrid Valley puriy." },
       tips: { title: "Apamuy", items: ["Bota", "Soroche pastilla", "Inti amachana", "Cámara", "Oxygen"] },
@@ -295,7 +295,7 @@ export const translations: Record<Locale, Translations> = {
     gallery: { title: "Rikuy", viewMore: "Google Maps nisqapi astawan rikuy" },
     reviews: { title: "Puriy Niykuna (Traveler Insights)", subtitle: "Ollantaytambo niykuna", viewMore: "Astawan niykuna" },
     faq: { title: "Tapuykuna", subtitle: "Yachay", items: [
-      { question: "Hayk'aq kachkan?", answer: "07:00-17:00. Sapa p'unchay." },
+      { question: "Hayk'aq kachkan?", answer: "07:00–16:30 (DDC Cusco)." },
       { question: "Qullqi paganan chá?", answer: "Arí. Boleto Turístico." }
     ]},
     location: { title: "Maypipas", address: "PPVM+6J7, Ollantaytambo 08676\nPerú\n(2792m)", openMaps: "Google Maps nisqapi maytapas rikuy" },

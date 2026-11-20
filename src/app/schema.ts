@@ -1,5 +1,5 @@
+import { siteUrl as baseUrl } from "@/i18n/site-url";
 export function generateSchema(locale: string) {
-  const baseUrl = `https://${process.env.CURRENT_SITE_DOMAIN || "ollantaytamboruins.com"}`;
   const localUrl = `${baseUrl}/${locale}`;
 
   const name = locale === "es"
@@ -41,7 +41,7 @@ export function generateSchema(locale: string) {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "07:00",
-          "closes": "17:00"
+          "closes": "16:30"
         },
         "priceRange": "$$",
         "isAccessibleForFree": false,

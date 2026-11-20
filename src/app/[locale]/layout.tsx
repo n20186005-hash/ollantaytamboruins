@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const baseUrl = `https://${process.env.CURRENT_SITE_DOMAIN || "ollantaytamboruins.com"}`;
+import { siteUrl as baseUrl } from "@/i18n/site-url";
 
 // 语言配置：HTML lang 属性 + OG locale 映射
 const localeConfig: Record<string, { htmlLang: string; ogLocale: string }> = {
@@ -194,18 +194,7 @@ export function generateStaticParams() {
   ];
 }
 
-import { generateSchema } from "../schema";
 import HtmlLangSetter from "@/components/HtmlLangSetter";
-
-function SchemaScript({ locale }: { locale: string }) {
-  const schema = generateSchema(locale);
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
 
 export default async function LocaleLayout({
   children,
@@ -221,7 +210,6 @@ export default async function LocaleLayout({
     <>
       {/* 动态设置 <html lang> 属性（客户端组件） */}
       <HtmlLangSetter htmlLang={htmlLang} />
-      <SchemaScript locale={locale} />
       {children}
     </>
   );
