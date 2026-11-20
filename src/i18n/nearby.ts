@@ -1,3 +1,5 @@
+import { expansionPlaces } from "./nearby-expansion";
+
 export const nearbyLabels = {
   en: "Nearby attractions",
   es: "Lugares cercanos",
@@ -9,6 +11,7 @@ export const areas = {
   ollanta: { en: "Ollantaytambo and Pachar", es: "Ollantaytambo y Pachar", zh: "奥扬泰坦博与帕查尔", qu: "Ollantaytambo, Pachar" },
   valley: { en: "Sacred Valley", es: "Valle Sagrado", zh: "圣谷", qu: "Willka Qhichwa" },
   machu: { en: "Machu Picchu and the Inca Trail", es: "Machu Picchu y el Camino Inca", zh: "马丘比丘与印加古道", qu: "Machupikchu, Inka Ñan" },
+  south: { en: "South Valley and Canchis", es: "Valle Sur y Canchis", zh: "南谷与坎奇斯", qu: "Uray Qhichwa, Kanchis" },
   cusco: { en: "Cusco day trips", es: "Excursiones en Cusco", zh: "库斯科延伸行程", qu: "Qusqu" },
 };
 
@@ -21,7 +24,7 @@ const valley = tourism + "/attractions/sacred-valley";
 const cusco = tourism + "/destinations/cusco";
 
 type Area = keyof typeof areas;
-type Operator = "park" | "trail" | "salt" | "town" | "rail" | "dominicans" | "archdiocese" | "market";
+type Operator = "park" | "trail" | "salt" | "town" | "rail" | "dominicans" | "archdiocese" | "market" | "community" | "outdoor" | "municipal" | "museum" | "church";
 
 const records: [
   string, string, Area, string, Operator, string, string, string, string, string, string, string, string
@@ -245,7 +248,11 @@ const records: [
     "Is it useful before leaving for the Sacred Valley?", "It can be a convenient city stop if your transfer starts nearby. Allow separate time for cross-town traffic."],
 ];
 
-export const attractions = records.map(([slug, name, area, place, operator, source, intro, details, transport, route, camera, question, answer]) => ({
+const expandedRecords: typeof records = expansionPlaces.map(([
+  slug, name, area, place, operator, source, intro, details, transport, camera, question, answer,
+]) => [slug, name, area, place, operator, source, intro, details, transport, "", camera, question, answer]);
+
+export const attractions = [...records, ...expandedRecords].map(([slug, name, area, place, operator, source, intro, details, transport, route, camera, question, answer]) => ({
   slug, name, area, place, operator, source, intro, details, transport, route, camera, question, answer,
 }));
 
@@ -257,10 +264,30 @@ export const operators: Record<Operator, { name: string; description: string; ur
   rail: { name: "Rail service operators", description: "The operator named on your ticket handles check-in and boarding. Consult it for current station access and the location of your service.", url: "https://www.perurail.com/" },
   dominicans: { name: "Convento de Santo Domingo", description: "The Dominican convent controls visits to the religious complex and the Inca structures within it. Confirm admission for the separate site museum if you plan to visit both." },
   archdiocese: { name: "Arzobispado del Cusco", description: "The cathedral is part of the Archdiocese of Cusco’s religious circuit. Check visiting arrangements around worship at the cathedral entrance." },
+  community: { name: "Community hosts", description: "Visiting arrangements are made with the host community. Confirm the meeting point, access and what the visit includes directly with your host." },
+  outdoor: { name: "Local access managers", description: "Public approaches, protected ground and private or operator-managed facilities can have different access arrangements. Confirm the specific point you intend to visit." },
+  municipal: { name: "Municipalidad Distrital de Machupicchu", description: "Check the municipal visitor contact for current bath access, hours and local arrangements.", url: "https://www.gob.pe/munimachupicchu" },
+  museum: { name: "Museum administration", description: "The museum’s own visitor staff control admission, exhibitions and access to rooms and courtyards." },
+  church: { name: "Church and visitor administration", description: "The venue manages access around worship and religious events. Check its designated visitor entrance for current arrangements." },
   market: { name: "Municipalidad Provincial del Cusco", description: "The city’s historic-center office documents the market and the surrounding Cascaparo public space. Individual vendors set their own trading arrangements.", url: "https://centrohistorico.cusco.gob.pe/media/ambientes_urbanos/INFORME_CALLE_QASQAPARO.pdf" },
 };
 
 export const municipalContacts: Record<string, string> = {
+  willoq: "Comunidad de Willoq",
+  patacancha: "Comunidad Campesina de Patacancha",
+  pachar: "Municipalidad Distrital de Ollantaytambo",
+  mandor: "Jardines de Mandor",
+  "manuel-chavez-ballon": "Dirección Desconcentrada de Cultura de Cusco",
+  huacarpay: "Lucre–Huacarpay Ramsar site contacts",
+  lamay: "Municipalidad Distrital de Lamay",
+  "museo-inka": "Universidad Nacional de San Antonio Abad del Cusco",
+  "museo-garcilaso": "Dirección Desconcentrada de Cultura de Cusco",
+  "museo-machu-picchu": "Universidad Nacional de San Antonio Abad del Cusco",
+  "map-cusco": "Museo de Arte Precolombino",
+  "san-blas": "Municipalidad Provincial del Cusco",
+  "twelve-angled-stone": "Municipalidad Provincial del Cusco",
+  "cristo-blanco": "Municipalidad Provincial del Cusco",
+  "san-cristobal": "Municipalidad Provincial del Cusco",
   "ollantaytambo-old-town": "Municipalidad Distrital de Ollantaytambo",
   "maras-town": "Municipalidad Distrital de Maras",
   "pisac-market": "Municipalidad Distrital de Pisac",
@@ -271,6 +298,13 @@ export const municipalContacts: Record<string, string> = {
 };
 
 export const admissionDetails: Record<string, string> = {
+  tipon: "Cusco Tourist Ticket, Circuit II or full ticket.",
+  pikillaqta: "Cusco Tourist Ticket, Circuit II or full ticket.",
+  "museo-garcilaso": "Cusco Tourist Ticket, Circuit II or full ticket.",
+  "machu-picchu-mountain": "Timed ticket for the route that names Montaña Machupicchu.",
+  mandor: "Separate admission arranged with Jardines de Mandor.",
+  "banos-termales": "Separate pool admission at the baths.",
+  andahuaylillas: "Check the current Andean Baroque circuit or church admission at the entrance.",
   moray: "Cusco Tourist Ticket, Circuit III or full ticket.",
   chinchero: "Cusco Tourist Ticket, Circuit III or full ticket.",
   "pisac-ruins": "Cusco Tourist Ticket, Circuit III or full ticket.",

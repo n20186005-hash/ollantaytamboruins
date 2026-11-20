@@ -1,3 +1,5 @@
+import { expansionPlans } from "./nearby-expansion";
+
 type Visit = {
   tagline: string;
   duration: string;
@@ -263,7 +265,7 @@ const plans: Record<string, [
   ],
 };
 
-export const visitPlans = Object.fromEntries(Object.entries(plans).map(([slug, [
+export const visitPlans = Object.fromEntries(Object.entries({ ...plans, ...expansionPlans }).map(([slug, [
   tagline, duration, terrain, advice, history, steps, precautions, stay,
 ]]) => [slug, { tagline, duration, terrain, advice, history, steps, precautions, stay } satisfies Visit]));
 
@@ -275,6 +277,8 @@ export const machuTickets = "https://tuboleto.cultura.pe/";
 export const openingHours: Record<string, { time: string; source: string }> = {
   qorikancha: { time: "08:00–17:30 (MINCETUR inventory)", source: mincetur + "1790" },
   "cusco-cathedral": { time: "10:00–18:00 (MINCETUR inventory)", source: mincetur + "896" },
+  "museo-inka": { time: "Mon–Fri 09:15–16:00; Sat 08:45–13:45 (Apr–Dec); closed Sundays and holidays", source: "https://museoinka.unsaac.edu.pe/informacion.php" },
+  pikillaqta: { time: "07:00–16:30", source: ddc + "pikillaqta/" },
   moray: { time: "07:00–17:00", source: ddc + "moray/" },
   chinchero: { time: "07:00–18:00", source: ddc + "chinchero/" },
   "pisac-ruins": { time: "07:00–16:30", source: ddc + "pisaq/" },
@@ -282,6 +286,11 @@ export const openingHours: Record<string, { time: string; source: string }> = {
 };
 
 export const fieldDetails: Record<string, { label: string; value: string }> = {
+  cachicqata: { label: "Inventory altitude", value: "About 3,886 m" },
+  piuray: { label: "Road reference", value: "About 1 km from the paved Cusco–Chinchero road in MINCETUR’s inventory" },
+  "museo-inka": { label: "Street address", value: "Cuesta del Almirante 103" },
+  "map-cusco": { label: "Museum address", value: "Plaza Nazarenas 231" },
+  "machu-picchu-mountain": { label: "Official route", value: "Circuit 1, Route 1-A" },
   pinkuylluna: { label: "Inventory altitude", value: "2,851 m" },
   pumamarca: { label: "Relative location", value: "About 6 km northeast of Ollantaytambo" },
   "naupa-iglesia": { label: "Inventory altitude", value: "2,850 m near Pachar" },
@@ -301,10 +310,21 @@ export const planningSources: Record<string, string> = {
   "san-pedro-market": mincetur + "6899",
 };
 
-export const placeRatings: Record<string, { score: string; reviews: string; url: string }> = Object.fromEntries(
-  [["pinkuylluna", "756"], ["moray", "12,227"]].map(([slug, reviews]) => [slug, {
-    score: "4.7",
-    reviews,
-    url: "https://www.google.com/travel/hotels/entity/ChcIz-6cnJWnv_lnGgsvZy8xdGZ6MTVkcRAB?ts=CAESABogCgIaABIaEhQKBwjlDxAHGBQSBwjlDxAHGBUYATICEAAqCQoFOgNVU0QaAA",
-  }]),
-);
+const ollantaRating = "https://www.google.com/travel/hotels/entity/ChkI48Oh-57lrIYsGg0vZy8xMWZqNHZnamtjEAE?ap=ugEGcHJpY2Vz&ts=CAEaBAoCGgAqBAoAGgA";
+const cuscoRating = "https://www.google.com/travel/hotels/entity/ChkIvJrIm7idrdAGGg0vZy8xMXJuNG5keThjEAE?gsas=1";
+const elAlbergue = "https://www.google.com/travel/hotels/entity/ChcIz-6cnJWnv_lnGgsvZy8xdGZ6MTVkcRAB?ts=CAESABogCgIaABIaEhQKBwjlDxAHGBQSBwjlDxAHGBUYATICEAAqCQoFOgNVU0QaAA";
+
+export const placeRatings: Record<string, { score: string; reviews: string; url: string }> = {
+  pinkuylluna: { score: "4.7", reviews: "756", url: elAlbergue },
+  moray: { score: "4.7", reviews: "12,227", url: elAlbergue },
+  pumamarca: { score: "4.7", reviews: "185", url: ollantaRating },
+  "naupa-iglesia": { score: "4.7", reviews: "255", url: ollantaRating },
+  sacsayhuaman: { score: "4.7", reviews: "20,506", url: cuscoRating },
+  qorikancha: { score: "4.7", reviews: "20,590", url: cuscoRating },
+  "san-pedro-market": { score: "4.3", reviews: "45,754", url: cuscoRating },
+  tambomachay: { score: "4.6", reviews: "4,136", url: "https://www.google.com/travel/hotels/entity/ChkImuTa65XQ7rQJGg0vZy8xMXNid2x5X2xfEAE/prices" },
+};
+
+export const confirmedTicketPrices: Record<string, { text: string; source: string }> = {
+  "museo-inka": { text: "UNSAAC lists S/20 for international adults and S/10 for Peruvian adults. See the museum’s student rates and current conditions before travel.", source: "https://museoinka.unsaac.edu.pe/informacion.php" },
+};

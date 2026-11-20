@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { admissionDetails, areas, attractions, municipalContacts, operators } from "@/i18n/nearby";
 import { attractionPhotos } from "@/i18n/nearby-photos";
-import { fieldDetails, machuTickets, openingHours, placeRatings, planningSources, tariffUrl, visitPlans } from "@/i18n/nearby-visit";
+import { confirmedTicketPrices, fieldDetails, machuTickets, openingHours, placeRatings, planningSources, tariffUrl, visitPlans } from "@/i18n/nearby-visit";
 import { siteUrl } from "@/i18n/site-url";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -47,6 +47,7 @@ export default async function AttractionPage({ params }: Props) {
   const field = fieldDetails[attraction.slug];
   const source = planningSources[attraction.slug];
   const admission = admissionDetails[attraction.slug];
+  const ticket = confirmedTicketPrices[attraction.slug];
   const pass = admission?.includes("Cusco Tourist Ticket");
   const circuitOne = pass && admission.includes("Circuit I or");
   const openingSummary = hours?.time ?? {
@@ -58,6 +59,11 @@ export default async function AttractionPage({ params }: Props) {
     salt: "Check with the salt pans operator",
     dominicans: "Check convent visiting hours",
     archdiocese: "Check sightseeing hours around worship",
+    community: "Arrange a time with your community host",
+    outdoor: "Confirm shore or garden access",
+    municipal: "Confirm current municipal visiting hours",
+    museum: "Check the museum’s visitor schedule",
+    church: "Confirm church visiting hours",
   }[attraction.operator];
   const openingNote = {
     town: "Streets and squares are public spaces. Check separate hours for churches, shops and any market stalls you plan to visit.",
@@ -68,10 +74,17 @@ export default async function AttractionPage({ params }: Props) {
     salt: "Confirm opening and last admission directly with the salt pans operator before traveling from Maras.",
     dominicans: "Check opening and last admission separately for the convent and site museum.",
     archdiocese: "Confirm sightseeing access at the cathedral entrance, especially around worship and religious events.",
+    community: "Community visits are arranged with hosts. Check the meeting time and expected length of any booked activity.",
+    outdoor: "Use daylight for the outdoor visit. Check access conditions and any operator-managed opening times before departure.",
+    municipal: "Confirm the current opening and last admission with the municipal bath operator.",
+    museum: "Confirm the museum’s current opening days and last admission. Check holiday schedules separately.",
+    church: "Ask about sightseeing access around services. Church and museum hours may differ.",
   }[attraction.operator];
   const photo = attractionPhotos[attraction.slug];
   const map = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(attraction.place + ", Perú")}`;
-  const related = attractions.filter(({ slug, area }) => area === attraction.area && slug !== attraction.slug).slice(0, 4);
+  const areaPlaces = attractions.filter((item) => item.area === attraction.area);
+  const currentPosition = areaPlaces.indexOf(attraction);
+  const related = [...areaPlaces.slice(currentPosition + 1), ...areaPlaces.slice(0, currentPosition)].slice(0, 4);
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",
@@ -142,7 +155,9 @@ export default async function AttractionPage({ params }: Props) {
         <section>
           <h2 className={heading}>Ticket prices and admission</h2>
           {admission && <p className="about-text">{admission}</p>}
-          {pass ? (
+          {ticket ? (
+            <p className="about-text">{ticket.text} <a href={ticket.source}>Museum ticket information</a></p>
+          ) : pass ? (
             <p className="about-text"><a href={tariffUrl}>COSITUC lists S/70 for the foreign visitor partial pass</a> ({circuitOne ? "one day" : "two days"}) or S/130 for the ten-day full pass. Check eligibility and current rates before buying.</p>
           ) : attraction.operator === "trail" ? (
             <p className="about-text">Check the <a href={machuTickets}>official Machu Picchu booking portal</a> for route-specific citadel prices. For a guided trail visit, confirm what the operator’s quote covers, including trail entry and onward travel.</p>
@@ -157,6 +172,11 @@ export default async function AttractionPage({ params }: Props) {
               salt: "Check the current rate with the salt pans operator before traveling.",
               archdiocese: "Ask the cathedral ticket desk for the current price and what the religious circuit includes.",
               dominicans: "Check current admission at the venue.",
+              community: "Agree on the cost of hosted activities and any transport before booking.",
+              outdoor: "Confirm separately any access fees, guide costs or activity charges.",
+              municipal: "Check municipal prices and any separate equipment or locker charges.",
+              museum: "Check venue admission and applicable rates before travelling.",
+              church: "Check the venue’s current sightseeing admission and religious-circuit terms.",
             }[attraction.operator]}</p>
           )}
         </section>
@@ -170,7 +190,7 @@ export default async function AttractionPage({ params }: Props) {
         </section>
         <section>
           <h2 className={heading}>Suggested walking route</h2>
-          <p className="about-text">{attraction.route}</p>
+          {attraction.route && <p className="about-text">{attraction.route}</p>}
           <ol className="explore-steps">
             {visit.steps.map((step) => <li key={step}>{step}</li>)}
           </ol>

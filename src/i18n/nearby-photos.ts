@@ -184,5 +184,191 @@ export const attractionPhotos: Record<string, { path: string; source: string; wi
     "source": "https://andina.pe/agencia/noticia-mejoraran-ornato-del-distrito-machu-picchu-para-celebraci-355229.aspx",
     "width": 1100,
     "height": 733
+  },
+  "cachicqata": {
+    "path": "/explore/cachicqata.webp",
+    "source": "https://cocatambo.com/blog/descubre-cachiccata",
+    "width": 1050,
+    "height": 700
+  },
+  "inti-punku-ollantaytambo": {
+    "path": "/explore/inti-punku-ollantaytambo.webp",
+    "source": "https://www.cuscotudestinotravel.com/tours/cachicata-inti-punku-cusco/",
+    "width": 1050,
+    "height": 684
+  },
+  "willoq": {
+    "path": "/explore/willoq.webp",
+    "source": "https://global.mongabay.com/es/travel/files/p12180p.html",
+    "width": 600,
+    "height": 400
+  },
+  "patacancha": {
+    "path": "/explore/patacancha.webp",
+    "source": "https://www.incatrekkers.com/exploring-the-ancient-inca-heritage-of-patacancha-community-in-ollantaytambo-peru",
+    "width": 1050,
+    "height": 591
+  },
+  "pachar": {
+    "path": "/explore/pachar.webp",
+    "source": "https://proyecto-arcoiris.com/intervenciones/proyectos-2022-peru/pachar-pueblo-mural/",
+    "width": 1050,
+    "height": 591
+  },
+  "piuray": {
+    "path": "/explore/piuray.webp",
+    "source": "https://machupicchualtitude.com/en/the-andean-ritual-of-love",
+    "width": 1050,
+    "height": 700
+  },
+  "huaypo": {
+    "path": "/explore/huaypo.webp",
+    "source": "https://mindtrip.ai/attraction/chinchero-cusco-south-peru/laguna-huaypo/at-BE88BYxD",
+    "width": 720,
+    "height": 540
+  },
+  "lamay": {
+    "path": "/explore/lamay.webp",
+    "source": "https://www.wetravel.com/trips/village-experience-in-lamay-la-base-lamay-87581649",
+    "width": 1050,
+    "height": 614
+  },
+  "tarawasi": {
+    "path": "/explore/tarawasi.webp",
+    "source": "https://www.johnandmandi.com/pages/nazca",
+    "width": 800,
+    "height": 533
+  },
+  "qoricocha": {
+    "path": "/explore/qoricocha.webp",
+    "source": "https://www.ticketmachupicchu.com/qoricocha-lagoon-mirror-water/",
+    "width": 800,
+    "height": 533
+  },
+  "mandor": {
+    "path": "/explore/mandor.webp",
+    "source": "https://www.steppestravel.com/destinations/south-america/peru/machu-picchu/",
+    "width": 1024,
+    "height": 576
+  },
+  "manuel-chavez-ballon": {
+    "path": "/explore/manuel-chavez-ballon.webp",
+    "source": "https://trekero.com/blog/museo-manuel-chavez-ballon-machu-picchu",
+    "width": 960,
+    "height": 640
+  },
+  "chachabamba": {
+    "path": "/explore/chachabamba.webp",
+    "source": "https://kenkoadventures.com/blog/chachabamba",
+    "width": 1050,
+    "height": 591
+  },
+  "intipata": {
+    "path": "/explore/intipata.webp",
+    "source": "https://trekero.com/blog/intipata-las-terrazas-del-sol",
+    "width": 960,
+    "height": 640
+  },
+  "machu-picchu-mountain": {
+    "path": "/explore/machu-picchu-mountain.webp",
+    "source": "https://ultimatetrekking.com/travel-blog/machu-picchu-mountain",
+    "width": 960,
+    "height": 640
+  },
+  "banos-termales": {
+    "path": "/explore/banos-termales.webp",
+    "source": "https://www.twowander.com/travel-journal/48-hours-in-machu-picchu",
+    "width": 979,
+    "height": 734
+  },
+  "tipon": {
+    "path": "/explore/tipon.webp",
+    "source": "https://www.nomades.com/cusco/valle-sur-tipon-id339",
+    "width": 1050,
+    "height": 700
+  },
+  "pikillaqta": {
+    "path": "/explore/pikillaqta.webp",
+    "source": "https://www.kondorpathtours.com/blog/pikillacta-ruins-explore-the-incredible-pre-inca-city/",
+    "width": 1040,
+    "height": 780
+  },
+  "raqchi": {
+    "path": "/explore/raqchi.webp",
+    "source": "https://www.cuscotopunobus.com/es/informacion-de-raqchi.html",
+    "width": 1050,
+    "height": 656
+  },
+  "andahuaylillas": {
+    "path": "/explore/andahuaylillas.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Saint_Peter_the_Apostle_of_Andahuaylillas.jpg",
+    "width": 1050,
+    "height": 715
+  },
+  "huacarpay": {
+    "path": "/explore/huacarpay.webp",
+    "source": "https://www.boletomachupicchu.com/guia-completa-laguna-huacarpay/",
+    "width": 800,
+    "height": 534
+  },
+  "museo-inka": {
+    "path": "/explore/museo-inka.webp",
+    "source": "https://www.peru.travel/stories/5-museums-in-cusco-that-you-should-visit",
+    "width": 826,
+    "height": 440
+  },
+  "museo-garcilaso": {
+    "path": "/explore/museo-garcilaso.webp",
+    "source": "https://commons.wikimedia.org/wiki/File:Museo_de_la_Casa_Garcilaso,_Cusco_02.jpg",
+    "width": 1040,
+    "height": 780
+  },
+  "map-cusco": {
+    "path": "/explore/map-cusco.webp",
+    "source": "https://happyperutours.com/blog/blog-castellano/atracciones-turisticas-de-cusco",
+    "width": 1050,
+    "height": 700
+  },
+  "san-blas": {
+    "path": "/explore/san-blas.webp",
+    "source": "https://www.voyageperou.info/guide-de-cusco-les-cafes/",
+    "width": 1024,
+    "height": 768
+  },
+  "twelve-angled-stone": {
+    "path": "/explore/twelve-angled-stone.webp",
+    "source": "https://www.viagensebeleza.com/2016/10/a-enigmatica-pedra-dos-12-angulos-em.html",
+    "width": 1024,
+    "height": 683
+  },
+  "la-compania": {
+    "path": "/explore/la-compania.webp",
+    "source": "https://www.peru.travel/es/experiencias/ruta-barroco-andino-cusco",
+    "width": 1050,
+    "height": 591
+  },
+  "la-merced": {
+    "path": "/explore/la-merced.webp",
+    "source": "https://www.tripadvisor.com.au/Attraction_Review-g294314-d553497-Reviews-Church_and_Convent_of_Our_Lady_of_Mercy_Iglesia_de_La_Merced-Cusco_Cusco_Region.html",
+    "width": 780,
+    "height": 780
+  },
+  "cristo-blanco": {
+    "path": "/explore/cristo-blanco.webp",
+    "source": "https://www.perurail.com/destinations/cusco/",
+    "width": 980,
+    "height": 513
+  },
+  "san-cristobal": {
+    "path": "/explore/san-cristobal.webp",
+    "source": "https://90summers.com/things-to-do-in-cusco-peru/",
+    "width": 1050,
+    "height": 700
+  },
+  "museo-machu-picchu": {
+    "path": "/explore/museo-machu-picchu.webp",
+    "source": "https://kenkoadventures.com/blog/5-best-museums-cusco",
+    "width": 1050,
+    "height": 591
   }
 };
